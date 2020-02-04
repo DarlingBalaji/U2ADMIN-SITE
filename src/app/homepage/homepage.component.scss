@@ -1,0 +1,100 @@
+.example-container {
+    height: 375px;
+    overflow: auto;
+    margin-top: -250px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.MarketPriceInput {
+    margin-top: 26px;       
+}
+mat-search-bar{
+    margin-left: 213px;
+}
+table {
+    width: 100%;
+}
+tr.mat-header-row{
+    background-color: #0E1F70;
+}
+th.mat-header-cell{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center
+}
+tr.mat-row:nth-child(odd) {
+    background-color: #F7F7F7;
+}
+tr.mat-row{
+    border: none;
+}
+.TableHeading{
+    color: black;
+    background-color: #ffffff;
+    margin-bottom: 0px;
+    font-size: 18px;
+    padding: 20px;
+    justify-content: center;
+}
+.CoinDropDown{
+    margin-top: 10px; 
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 12px 0 12px 0 !important;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 90%;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+.dropdown-menu{
+    right: auto;
+    bottom: auto;
+    width: 69%;
+}
+.dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #E72B90;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #ffffff!important;
+    text-decoration: none;
+    background-color: #E72B90;
+}
+@media only screen and (max-width: 600px) {
+    .NewLetteInput{
+    width: 100%;
+    }
+    .btn.NewLetterButton{
+        margin-top: 10px;
+    }
+    td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+        font-size: 13px;
+    }
+    mat-search-bar[_ngcontent-c1] {
+        margin-left: 0px;
+    }
+    .example-container[_ngcontent-c1]{
+        height: auto;
+    }
+    .MarketTableSection{
+        margin-top: 0px;
+    }
+}
+@media only screen and (max-width: 780px) {
+mat-search-bar[_ngcontent-c1] {
+        margin-left: 0px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .Send_Receive_Table{
+        width: 100%;
+        overflow-x: scroll;
+    }
+  }

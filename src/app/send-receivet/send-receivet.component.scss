@@ -1,0 +1,55 @@
+.MarketPriceInput1 input{
+    // padding:10px;
+    border:1px solid #e72b90;
+    width: 94%;
+    border-radius: 20px;
+    // color: lightgrey;
+    padding: 7px;
+    display: inline-flex;
+    margin-left: 33px;
+    outline: none;
+    }
+    .HISTORY_Heading{
+        margin-top: 7px;
+    }
+
+::ng-deep .mat-paginator-icon {
+    width: 28px;
+    fill: currentColor;
+    color: white;
+    border-radius: 50%;
+    background-color: #E72B90;
+    padding: 5px;
+}
+
+tr.mat-header-row{
+    background-color: #0E1F70;
+    // color: #ffffff;
+  }
+  th.mat-header-cell{
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center
+  }
+  @media only screen and (max-width: 600px) {
+    .SEND_RECEIVE_INPUT_SECTION{
+        height: auto;
+    }
+    .MarketPriceInput1 input{
+        border: 1px solid #e72b90;
+        width: 94%;
+        border-radius: 20px;
+        padding: 7px;
+        display: -webkit-inline-box;
+        display: inline-flex;
+        margin-left: 0px!important; 
+        outline: none;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .Send_Receive_Table{
+        width: 100%;
+        overflow-x: scroll;
+    }
+  }

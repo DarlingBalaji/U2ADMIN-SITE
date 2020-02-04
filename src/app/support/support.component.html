@@ -1,0 +1,125 @@
+
+
+      <section  style="margin-top:169px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <form (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+                <!-- <div class="row"> -->
+                  
+                  <div class="Ticket_Form">
+                      <h2 class="Dashboard_Heading text-center mt-2 mb-2">Ticket Form</h2>
+                    <!-- Mail_ID -->
+                    <!-- <mat-form-field appearance="outline" class="col-lg-6">
+                      <mat-label>E-mail ID</mat-label>
+                      <input matInput placeholder="Enter your E-mail ID"
+                      pattern=".+@.+\..+" 
+                      [(ngModel)]="model.email"
+                      name="email" #email="ngModel"
+                      [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                      required autocomplete="off" /><br>
+                      <mat-error *ngIf="email.invalid && f.submitted && email.errors?.required">Email is required</mat-error>
+                      <mat-error *ngIf="email.invalid && f.submitted && email.errors?.pattern">Email must be a valid email address</mat-error>
+                  </mat-form-field> -->
+
+                  <!-- Category -->
+                  <mat-form-field appearance="outline" class="col-lg-6 mt-2">
+                      <mat-label>Category</mat-label>
+                      <mat-select required matInput #category="ngModel"
+                        name="category" [(ngModel)]="f.category">
+                        <mat-option>None</mat-option>
+                        <mat-option value="option1">Add Coin</mat-option>
+                        <mat-option value="option2">Login Problem</mat-option>
+                        <mat-option value="option3">Exchange</mat-option>
+                        <mat-option value="option3">Deposit</mat-option>
+                      </mat-select>
+                      <!-- <mat-error *ngIf="category.errors && (category.dirty || category.touched || submitted)">
+                        <span [hidden]="!category.errors.required" class="error"
+                        translate>Please select option </span> -->
+                        <mat-error *ngIf="category.invalid && f.submitted && category.errors?.required">Select Category</mat-error>
+                        <!-- </mat-error> -->
+                    </mat-form-field> 
+                  <!-- Subject Section -->
+                      <mat-form-field appearance="outline" class="col-lg-6">
+                          <mat-label>Subject</mat-label>
+                          <input matInput placeholder="Subject" class="matInputt" 
+                         
+                      [(ngModel)]="model.Subject"
+                      name="Subject" #Subject="ngModel"
+                      [ngClass]="{ 'is-invalid': f.submitted && Subject.invalid }"
+                      required autocomplete="off" /><br>
+                      <mat-error *ngIf="Subject.invalid && f.submitted && Subject.errors?.required">Subject is required</mat-error>
+                      <!-- <mat-error *ngIf="email.invalid && f.submitted && email.errors?.pattern">Email must be a valid email address</mat-error> -->
+                  </mat-form-field>
+
+                      <!-- Message Section -->
+                      <mat-form-field appearance="outline" class="col-lg-12">
+                          <mat-label>Leave Your Message Here</mat-label>
+                          <textarea matInput rows="3" placeholder="Leave a comment"
+                          
+                          [(ngModel)]="model.Message"
+                          name="Message" #Message="ngModel"
+                          [ngClass]="{ 'is-invalid': f.submitted && Message.invalid }"
+                          required autocomplete="off"> </textarea><br>
+                          <mat-error *ngIf="Message.invalid && f.submitted && Message.errors?.required">Message is required</mat-error>
+                          <!-- <mat-error *ngIf="email.invalid && f.submitted && email.errors?.pattern">Email must be a valid email address</mat-error> -->
+                      </mat-form-field>
+
+                      <!-- Button -->
+                      <div class="col-lg-12 text-center">
+                          <img src="assets/images/file.png" alt="Upload" class="Upload_Support_Ticket">
+                      </div>
+                      <div class="text-center mt-4 mb-2">
+                        <button class="Support_Upload_Btn">Submit</button>
+                      </div>
+                  <!-- </div> -->
+              </div>
+            </form>
+            </div>
+            <div class="col-lg-6">
+              <!-- <h2 class="Dashboard_Heading">Your Issue Ticket</h2> -->
+              <!-- <div class="row"> -->
+                  <!-- <div class="col-lg-12"> -->
+                      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-lg-12 text-center">
+    
+                          <!--- Note that these columns can be defined in any order.
+                                The actual rendered columns are set as a property on the row definition" -->
+                        
+                          <!-- Position Column -->
+                          <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                          </ng-container>
+                        
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Subject </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                          </ng-container>
+                        
+                          <!-- Weight Column -->
+                          <ng-container matColumnDef="weight">
+                            <th mat-header-cell *matHeaderCellDef> Ticket No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                          </ng-container>
+                        
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="symbol">
+                            <th mat-header-cell *matHeaderCellDef> Status </th>
+                            <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.symbol === 'Closed' ? 'red' : 'green' }"> {{element.symbol}} </td>
+                          </ng-container>
+                        
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                         
+                        </table>
+                        
+                        
+                  <!-- </div> -->
+              <!-- </div> -->
+ 
+            </div>
+          </div>
+        </div>
+      </section>
+

@@ -1,0 +1,174 @@
+
+th{
+    width: 130px;
+    
+}
+tr{
+    text-align: center;
+}
+.Table_Deatils{
+    background-color: #ffffff;
+    height: 60px;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center; 
+    // margin: 5px 0px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    // background: moccasin;
+    color: #0E1F70;
+    font-weight: 700;
+    margin-top: 8px;
+    border: 1px solid #0E1F70;
+    // border-top: 1px solid #ffff;border-right: 1px solid #ffff;border-left: 1px solid #ffff;
+    // border-bottom: 2px solid #0E1F70!important;
+    background-color: #E72B90;
+  }
+  .nav-link:hover{
+    // border-top: 1px solid #ffff;border-right: 1px solid #ffff;border-left: 1px solid #ffff;
+    // border-bottom: 2px solid #0E1F70!important;
+    background-color: #E72B90;
+    border: 1px solid #0E1F70;
+  }
+  .nav-tabs .nav-item .nav-link, .nav-tabs{
+    color: #0E1F70;
+    // background-color: #ffffff;
+    font-size: 16px;
+    margin-top: 8px;
+    border-bottom: 1px solid transparent;
+    font-weight: 700;
+  }
+  .nav-link{
+      background-color: #ffffff;
+      border: 1px solid #0E1F70;
+  }
+  .nav-tabs .nav-item{
+      color: #0E1F70;margin-top: 8px;
+      border-radius: 10px;
+  }
+  .nav-tabs .nav-item:not(:first-child){
+      margin-left: 10px;
+  }
+
+  .Tab_Section{
+    //   background-color: #ffffff;
+      height: 56px;
+      margin-top: 28px;
+  }
+  input.mat-input-element {
+    color: #ffffff;font-size: 14px;
+}
+tr.mat-header-row{
+    background-color: #0E1F70;
+    // color: #ffffff;
+  }
+  tr{
+    text-align: center;
+    background-color: transparent;
+}
+
+tr.mat-row:hover td {
+    color: #ffffff;
+    background-color: #428abc;
+}
+tr.mat-row td {
+    color: white;
+    border-bottom: 1px solid #428abc;
+}
+::ng-deep .mat-paginator-icon {
+    width: 28px;
+    fill: currentColor;
+    color: white;
+    border-radius: 50%;
+    background-color: #E72B90;
+    padding: 5px;
+}
+.mat-elevation-z8:hover {
+    box-shadow: 0 0px 15px 0px #E72B90;
+}
+.mat-elevation-z8 {
+    box-shadow: 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc;
+    background-color: transparent;
+}
+table.mat-table {
+    border-spacing: 0;
+    // color: #ffffff!important;
+    background: transparent;
+}
+.mat-paginator {
+    background: transparent;
+    color: white;
+}
+mat-label{
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+}
+::ng-deep .mat-select-arrow {
+    color: #ffffff;
+}
+::ng-deep .mat-select-value-text {
+    color: #ffffff;font-size: 14;
+}
+::ng-deep .mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 84px !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #428abc;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #428abc;
+}
+::ng-deep tr.mat-row:hover td {
+  color: #ffffff;background-color: #428abc;
+}
+::ng-deep .mat-select-panel {
+    background: #0E1F70;
+    color: #ffffff; 
+}
+::ng-deep .mat-option:hover:not(.mat-option-disabled) {
+    background-color: #E72B90;
+}
+::ng-deep .mat-option-text {
+    color: #ffffff;
+}
+::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0 0px 15px 0px #428abc;
+}
+th.mat-header-cell{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center
+}
+  @media only screen and (max-width: 600px) {
+    // .SEND_RECEIVE_INPUT_SECTION{
+    //     height: auto;
+    // }
+    td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+        font-size: 13px;
+    }
+  }
+@media only screen and (max-width: 600px) {
+    .Dashboard-UserDetails{
+    height: auto;
+    }
+    .Exchange_History1 {
+        background-color: #ffffff;
+        margin: 0px; 
+        padding: 10px;
+        height: auto; 
+        font-size: 12px;
+    }
+    .Exchange_History {
+        background-color: #ffffff;
+        margin: 5px; 
+        padding: 10px;
+        height: auto; 
+        font-size: 12px;
+    }
+}

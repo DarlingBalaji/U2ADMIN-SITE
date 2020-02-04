@@ -1,0 +1,89 @@
+::ng-deep .mat-select-panel {
+    background: #0E1F70;
+    color: #ffffff; 
+}
+::ng-deep .mat-option:hover:not(.mat-option-disabled) {
+    background-color: #E72B90;
+}
+::ng-deep .mat-option-text {
+    color: #ffffff;
+}
+::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0 0px 15px 0px #428abc;
+}
+th.mat-header-cell{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center
+}::ng-deep tr.mat-row:hover td {
+    color: #ffffff;background-color: #428abc;
+  }
+  ::ng-deep .mat-select-arrow {
+    color: #ffffff;
+}
+::ng-deep .mat-select-value-text {
+    color: #ffffff;font-size: 14;
+}
+tr.mat-header-row{
+    background-color: #0E1F70;
+    // color: #ffffff;
+  }
+  tr{
+    text-align: center;
+    background-color: transparent;
+}
+
+tr.mat-row:hover td {
+    color: #ffffff;
+    background-color: #428abc;
+}
+tr.mat-row td {
+    color: white;
+    border-bottom: 1px solid #428abc;
+}
+::ng-deep .mat-paginator-icon {
+    width: 28px;
+    fill: currentColor;
+    color: white;
+    border-radius: 50%;
+    background-color: #E72B90;
+    padding: 5px;
+}
+.mat-elevation-z8:hover {
+    box-shadow: 0 0px 15px 0px #E72B90;
+}
+.mat-elevation-z8 {
+    box-shadow: 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc;
+    background-color: transparent;
+}
+table.mat-table {
+    border-spacing: 0;
+    // color: #ffffff!important;
+    background: transparent;
+}
+.mat-paginator {
+    background: transparent;
+    color: white;
+}
+input.mat-input-element {
+    color: #ffffff;font-size: 14px;
+}
+::ng-deep .mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 84px !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #428abc;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #428abc;
+}
+mat-label{
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+}

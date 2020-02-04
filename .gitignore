@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+node_modules/*
+package-lock.json
+
+=======
+# Add any directories, files, or patterns you don't want to be tracked by version control
+.ssh
+.nano
+.cache
+node_modules/*
+>>>>>>> 66d4bb751497bcb0cc4f5a1501719280a762f8b4

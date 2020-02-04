@@ -1,0 +1,178 @@
+
+          <section style="margin-top:150px;">
+            <div class="containerr">
+              <div class="row">
+                <div class="col-lg-6">
+                    <div class="col-lg-12 Dashboard-UserDetails" style="height: 56px;">
+                        <ul class="Setting_Heading1">
+                          <li routerLink='/Send'>SEND</li>
+                          <li routerLink='/Send_Receivet' style="border-bottom: 2px solid #020748">RECEIVE</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-12 RECEIVE_INPUT_SECTION">
+                        
+                        <form (ngSubmit)="BankDetails.form.valid" #BankDetails="ngForm" novalidate>
+                          <div class="row">
+                          <div class="col-lg-12">
+                              <h2 class="Dashboard_Heading mt-4">BTC</h2>
+                              <p class="SEND_RECIVE_DESC">0.0011251 BTC</p>
+                          </div>  
+                         
+                            <div class="col-lg-6">
+                              <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>Select Your Currency</mat-label>
+                                <mat-select required matInput #Currency="ngModel"
+                                  name="Currency" [(ngModel)]="BankDetails.Currency">
+                                  <mat-option>None</mat-option>
+                                  <mat-option value="option1">BTC</mat-option>
+                                  <mat-option value="option2">ERK</mat-option>
+                                  <mat-option value="option3">LIT</mat-option>
+                                  <mat-option value="option3">ETH</mat-option>
+                                </mat-select>
+                                <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+                                  <span [hidden]="!Currency.errors.required" class="error"
+                                  translate>Please select option </span> -->
+                                  <mat-error *ngIf="Currency.invalid && BankDetails.submitted && Currency.errors?.required">AccountNo is required</mat-error>
+                                  <!-- </mat-error> -->
+                              </mat-form-field>   
+                                  <mat-form-field appearance="outline" class="col-lg-12">
+                                    <mat-label>Receiver Address</mat-label>
+                                    <input matInput placeholder="Amount" class="matInputt"
+                                    autocomplete="off" [(ngModel)]="model.BranchName"
+                                    name="BranchName" 
+                                    #BranchName="ngModel"
+                                    [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }"
+                                    required autocomplete="off" 
+                                    >
+                                    <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">Address is required</mat-error>
+                                    <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                    <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">Address Incorrect</mat-error>
+                                </mat-form-field>
+                            </div>
+                          
+                            
+                            <div class="col-lg-6 text-center">
+                                <img src="assets/images/Layer1.png" alt="" width="60%">
+                                <h5>Scan QR Code</h5>
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <p class="SEND_RECIVE_DESC">Minmium Request Amount : 122.0005BTC</p>
+                              <button class="SEND_Btn">Submit</button>
+                            </div>
+                          </div>
+                          </form>
+                        
+                      
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="col-lg-12 Dashboard-UserDetails" style="height: 56px;">
+                          <div class="col-lg-6 pull-left">
+                              <h5 class="HISTORY_Heading">History</h5>
+                            </div>
+                            <!-- <div class=""> -->
+                                <form class="MarketPriceInput1 col-lg-6" style="display: inline-flex">
+                                    <input type="text" placeholder="Search">
+                                    <span><i class="fa fa-search" style="margin-left: -35px;    margin-top: 10px;
+                                      color: gray;" aria-hidden="true"></i></span>
+                                  </form>
+                            <!-- </div> -->
+                      </div>
+                      <div class="mt-4">
+                          <div class="mat-elevation-z8 Send_Receive_Table">
+                              <table mat-table [dataSource]="dataSource" class="col-lg-12 text-center">
+                            
+                                <!-- Position Column -->
+                                <!-- <ng-container matColumnDef="position">
+                                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                                </ng-container> -->
+                            
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="name">
+                                  <th mat-header-cell *matHeaderCellDef> Date & Time </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+                            
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="weight">
+                                  <th mat-header-cell *matHeaderCellDef> Amount </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                </ng-container>
+                            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="symbol">
+                                  <th mat-header-cell *matHeaderCellDef> Receiver Address </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                </ng-container>
+  
+                                  <!-- Symbol Column -->
+                                  <ng-container matColumnDef="Status">
+                                      <th mat-header-cell *matHeaderCellDef>Status </th>
+                                      <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.Status === 'Incompleted' ? 'red' : 'green' }"> {{element.Status}} </td>
+                                    </ng-container>
+                            
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                              </table>
+                            
+                              <mat-paginator [pageSizeOptions]="[6 ,5, 10]"></mat-paginator>
+                            </div>
+                            
+                                
+                      </div>     
+                  </div>
+              </div>
+            </div>
+          </section>
+         
+          <section>
+              <div class="container mt-4 mb-4">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <h5 class="copyright" style="color:black;">&copy;Copyright 2020 U2Admin. All rights reserved.</h5>
+                  </div>
+                </div>
+              </div>
+            </section>
+       
+
+
+
+<!--  -->
+<!-- <div class="col-lg-12 SEND_RECEIVE_INPUT_SECTION">
+    <div class="row">
+      <div class="col-lg-12">
+          <h2 class="Dashboard_Heading mt-4">BTC</h2>
+          <p class="SEND_RECIVE_DESC">0.0011251 BTC</p>
+      </div>  
+        <div class="col-lg-6">
+            <mat-form-field appearance="outline" class="col-lg-12">
+                <mat-label>Select Your Currency</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option>None</mat-option>
+                  <mat-option value="option1">BTC</mat-option>
+                  <mat-option value="option2">ERK</mat-option>
+                  <mat-option value="option3">LIT</mat-option>
+                  <mat-option value="option3">ETH</mat-option>
+                </mat-select>
+              </mat-form-field>  
+              <mat-form-field appearance="outline" class="col-lg-12">
+                <mat-label>Receiver Address</mat-label>
+                <input matInput placeholder="Amount" class="matInputt" autocomplete="off" [type]="hide ? 'password' : 'text'">
+               
+              </mat-form-field>
+        </div>
+       
+        
+        <div class="col-lg-6 text-center">
+            <img src="assets/images/Layer1.png" alt="" width="60%">
+            <h5>Scan QR Code</h5>
+        </div>
+        <div class="col-lg-12 text-center">
+            <p class="SEND_RECIVE_DESC">Minmium Request Amount : 122.0005BTC</p>
+          <button class="SEND_Btn">Submit</button>
+        </div>
+    </div>
+      
+  </div> -->

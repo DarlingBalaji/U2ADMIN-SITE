@@ -1,0 +1,102 @@
+<section class="FooterBackGroungColor1">
+  <app-header></app-header>
+</section>
+<section>
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-lg-4">
+        <p class="ContactUs_Heading">Feel free to write Us a Message</p>
+        <p class="AboutUs_Section">
+            U2ADMIN is the native coin of its own PoS blockchain,
+            the U2ADMIN Network (eurekanetwork.io) and we have many projects
+            preparing to build upon it using tokens.
+            The U2ADMIN blockchain will not only be Proof of Stake itself 
+            ( meaning U2ADMIN in itself can be used to earn passively ) 
+            but other tokens/ sidechain coins will be able to be proof of stake
+            in themselves securing their own network.
+        </p>
+      </div>
+      <div class="col-lg-8">
+        <!-- Form Section Start -->
+        <form (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+          <!-- User Name -->
+            <mat-form-field appearance="outline" class="col-lg-6">
+              <mat-label>User Name</mat-label>
+              <input matInput placeholder="User Name" class="matInputt" autocomplete="off" required
+              minlength="4"
+							[(ngModel)]="model.firstname" 
+							name="firstname"  pattern="^[a-zA-Z0-9]+$"
+							#firstname="ngModel"
+							[ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
+							required autocomplete="off" 
+							><br>
+							<mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.required">firstname is required</mat-error>
+							<!-- <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.minlength">firstname should have minimum 4 characters</mat-error> -->
+              <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.pattern">Special Characters not Allowed</mat-error>
+              
+            </mat-form-field>
+
+            <!-- Phone Number -->
+            <mat-form-field appearance="outline" class="col-lg-6">
+              <mat-label>Phone Number</mat-label>
+              <input matInput placeholder="Enter Your Phone Number" class="matInputt" autocomplete="off"
+              minlength="10" maxlength="10" [(ngModel)]="model.PhoneNumber" 
+              name="PhoneNumber" pattern="[7-9]{1}[0-9]{9}"
+              #PhoneNumber="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && PhoneNumber.invalid }"
+              required autocomplete="off" 
+              >
+              <mat-error *ngIf="PhoneNumber.invalid && f.submitted && PhoneNumber.errors?.required">Phone NUmber is required</mat-error>
+              <mat-error *ngIf="PhoneNumber.invalid && f.submitted && PhoneNumber.errors?.minlength">firstname should have minimum 10 characters</mat-error>
+              <mat-error *ngIf="PhoneNumber.invalid && f.submitted && PhoneNumber.errors?.pattern">Check your Number</mat-error>
+            </mat-form-field>
+
+            <!-- Mail_ID -->
+            <mat-form-field appearance="outline" class="col-lg-6">
+                <mat-label>User E-mail ID</mat-label>
+                <input matInput placeholder="Enter Your E-mail ID" class="matInputt" autocomplete="off"
+                pattern=".+@.+\..+" 
+                [(ngModel)]="model.email"
+                name="email" #email="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                required autocomplete="off" /><br>
+                <mat-error *ngIf="email.invalid && f.submitted && email.errors?.required">Email is required</mat-error>
+                <mat-error *ngIf="email.invalid && f.submitted && email.errors?.pattern">Email must be a valid email address</mat-error>
+            </mat-form-field>
+
+            <!-- Subject -->
+            <mat-form-field appearance="outline" class="col-lg-6">
+                <mat-label>Subject</mat-label>
+                <input matInput placeholder="Subject" class="matInputt" autocomplete="off"
+                [(ngModel)]="model.Subject"
+                name="Subject" pattern="^[a-zA-Z]+$"
+                #Subject="ngModel"
+                [ngClass]="{ 'is-invalid' : f.submitted && Subject.invalid }" required
+                autocomplete="off">
+                <mat-error *ngIf="Subject.invalid && f.submitted && Subject.errors?.required">Subject Required</mat-error>
+                <mat-error *ngIf="Subject.invalid && f.submitted && Subject.errors?.pattern">Subject Should Contain Characters</mat-error>
+            </mat-form-field>
+
+            <!-- Message -->
+            <mat-form-field appearance="outline" class="col-lg-12">
+                <mat-label>Leave Your Message Here</mat-label>
+                <textarea matInput rows="5" placeholder="Leave a comment"
+                [(ngModel)]="model.Message"
+                name="Message"
+                #Message="ngModel"
+                [ngClass]="{ 'is-invalid' : f.submitted && Message.invalid }" required
+                autocomplete="off"></textarea>
+                <mat-error *ngIf="Message.invalid && f.submitted && Message.errors?.required">Message Required</mat-error>
+            </mat-form-field>
+
+            <!-- Button -->
+              <button class="ContactUs_Btn">Send Message</button>
+          </form>
+          <!-- Form Section End -->
+      </div>
+    </div>
+  </div>
+</section>
+<section class="FooterBackGroungColor mt-4">
+  <app-footer></app-footer>
+</section>

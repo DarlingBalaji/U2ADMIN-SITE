@@ -1,0 +1,66 @@
+<section style="margin-top: 160px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="Buy_Sell_Heading mb-4">
+          <p class="BuyCoin_Heading">Transaction History</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+          <div class="mat-elevation-z8 mt-2">
+              <mat-form-field appearance="outline" class="col-lg-4 mt-2">
+                  <mat-label>Filter</mat-label>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+                
+              <table mat-table [dataSource]="dataSource" class="col-lg-12 text-center">
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef> Date & Time </th>
+                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+
+                   <!-- Name Column -->
+                   <ng-container matColumnDef="position">
+                      <th mat-header-cell *matHeaderCellDef> Buy/Sell </th>
+                      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                  </ng-container>
+
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="weight">
+                      <th mat-header-cell *matHeaderCellDef> Pair </th>
+                      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                  </ng-container>
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="Fee">
+                      <th mat-header-cell *matHeaderCellDef>Payment </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Fee}} </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="symbol">
+                      <th mat-header-cell *matHeaderCellDef> Amount </th>
+                      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="Status">
+                      <th mat-header-cell *matHeaderCellDef>Status </th>
+                      <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.Status === 'Incompleted' ? 'red' : 'green' }"> {{element.Status}} </td>
+                  </ng-container>
+
+
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+              </table>
+
+              <mat-paginator  #paginator [pageSizeOptions]="[5 ,7, 10]"></mat-paginator>
+</div>
+      </div>
+    </div>
+  </div>
+</section>

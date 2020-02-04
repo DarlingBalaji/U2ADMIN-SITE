@@ -1,0 +1,914 @@
+          <section style="margin-top:150px;">
+            <div class="containerr">
+              <div class="row">
+                <div class="col-lg-6">
+                    <div class="col-lg-12 Dashboard-UserDetails" style="height: 56px;">
+                        <ul class="Setting_Heading1">
+                          <li style="border-bottom: 2px solid #020748">Deposit</li>
+                          <li routerLink='/'>Withdraw</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-12 DEPOSIT_INPUT_SECTION">
+                        <form (ngSubmit)="BankDetails.form.valid" #BankDetails="ngForm" novalidate>
+                        <div class="row">
+                          <div class="col-lg-12">
+                              <h2 class="Dashboard_Heading mt-4">BTC</h2>
+                              <p class="SEND_RECIVE_DESC">0.0011251 BTC</p>
+                          </div>  
+                            <div class="col-lg-6">
+                              <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>Select Your Currency</mat-label>
+                                <mat-select required matInput #Currency="ngModel"
+                                  name="Currency" [(ngModel)]="BankDetails.Currency">
+                                  <mat-option>None</mat-option>
+                                  <mat-option value="option1">BTC</mat-option>
+                                  <mat-option value="option2">ERK</mat-option>
+                                  <mat-option value="option3">LIT</mat-option>
+                                  <mat-option value="option3">ETH</mat-option>
+                                </mat-select>
+                                <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+                                  <span [hidden]="!Currency.errors.required" class="error"
+                                  translate>Please select option </span> -->
+                                  <mat-error *ngIf="Currency.invalid && BankDetails.submitted && Currency.errors?.required">AccountNo is required</mat-error>
+                                  <!-- </mat-error> -->
+                              </mat-form-field>     
+                                  
+                                  <mat-form-field appearance="outline" class="col-lg-12">
+                                      <mat-label>Receiver Address</mat-label>
+                                      <input matInput placeholder="Amount" class="matInputt"
+                                      autocomplete="off" [(ngModel)]="model.BranchName"
+                                      name="BranchName" 
+                                      #BranchName="ngModel"
+                                      [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }"
+                                      required autocomplete="off" 
+                                      >
+                                      <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">BranchName is required</mat-error>
+                                      <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                      <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">BranchName Incorrect</mat-error>
+                                  </mat-form-field>
+                            </div>
+                           
+                            
+                            <div class="col-lg-6 text-center">
+                                <img src="assets/images/Layer1.png" alt="" width="60%">
+                                <h5>Scan QR Code</h5>
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <p class="SEND_RECIVE_DESC">Minmium Request Amount : 122.0005BTC<br> Maxmium Request Amount : 122.0005BTC</p>
+                              <button class="SEND_Btn">Submit</button>
+                            </div>
+                        </div>
+                      </form>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="col-lg-12 Dashboard-UserDetails" style="height: 56px;">
+                          <div class="col-lg-6 pull-left">
+                              <h5 class="HISTORY_Heading">History</h5>
+                            </div>
+                            <!-- <div class=""> -->
+                                <form class="MarketPriceInput1 col-lg-6" style="display: inline-flex">
+                                    <input type="text" placeholder="Search">
+                                    <span><i class="fa fa-search" style="margin-left: -35px;    margin-top: 10px;
+                                      color: gray;" aria-hidden="true"></i></span>
+                                  </form>
+                            <!-- </div> -->
+                      </div>
+                      <div class="mt-4">
+                          <div class="mat-elevation-z8">
+                              <table mat-table [dataSource]="dataSource" class="col-lg-12 text-center">
+                            
+                                <!-- Position Column -->
+                                <!-- <ng-container matColumnDef="position">
+                                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                                </ng-container> -->
+                            
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="name">
+                                  <th mat-header-cell *matHeaderCellDef> Date & Time </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+                            
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="weight">
+                                  <th mat-header-cell *matHeaderCellDef> Amount </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                </ng-container>
+                                   <!-- Symbol Column -->
+                                   <ng-container matColumnDef="Fee">
+                                      <th mat-header-cell *matHeaderCellDef>Fee Amount</th>
+                                      <td mat-cell *matCellDef="let element"> {{element.Fee}} </td>
+                                    </ng-container>
+                            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="symbol">
+                                  <th mat-header-cell *matHeaderCellDef> Transaction ID </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                </ng-container>
+  
+                                  <!-- Symbol Column -->
+                                  <ng-container matColumnDef="Status">
+                                      <th mat-header-cell *matHeaderCellDef>Status </th>
+                                      <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.Status === 'Incompleted' ? 'red' : 'green' }"> {{element.Status}} </td>
+                                    </ng-container>
+
+                                  
+                            
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                              </table>
+                            
+                              <mat-paginator [pageSizeOptions]="[6 ,5, 10]"></mat-paginator>
+                            </div>
+                            
+                                
+                      </div>     
+                  </div>
+              </div>
+            </div>
+          </section>
+         
+          <section>
+              <div class="container mt-4 mb-4">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <h5 class="copyright" style="color:black;">&copy;Copyright 2020 U2Admin. All rights reserved.</h5>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+<section style="margin-top:130px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <!-- page content -->
+        <div class="Tab_Section">
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Deposit</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Withdraw</a>
+            <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
+        </div>
+      </div>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="Deposit_Section mb-4">
+                      <h2 class="Dashboard_Heading mt-4">Deposit</h2>
+                      <p class="SEND_RECIVE_DESC">Avaliable Balance : 0.0011251 USD</p>
+                      <form (ngSubmit)="BankDetails.form.valid" #BankDetails="ngForm" novalidate>
+
+                        <!-- Currency -->
+                          <mat-form-field appearance="outline" class="col-lg-12">
+                              <mat-label>Select Your Currency</mat-label>
+                              <mat-select required matInput #Currency="ngModel"
+                                name="Currency" [(ngModel)]="BankDetails.Currency">
+                                <mat-option>None</mat-option>
+                                <mat-option value="option1">BTC</mat-option>
+                                <mat-option value="option2">ERK</mat-option>
+                                <mat-option value="option3">LIT</mat-option>
+                                <mat-option value="option3">ETH</mat-option>
+                              </mat-select>
+                              <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+                                <span [hidden]="!Currency.errors.required" class="error"
+                                translate>Please select option </span> -->
+                                <mat-error *ngIf="Currency.invalid && BankDetails.submitted && Currency.errors?.required">AccountNo is required</mat-error>
+                                <!-- </mat-error> -->
+                            </mat-form-field> 
+
+                            <!-- Receiver Address -->
+                            <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>Deposit Amount</mat-label>
+                                <input matInput placeholder="Amount" class="matInputt"
+                                autocomplete="off" [(ngModel)]="model.BranchName"
+                                name="BranchName" 
+                                #BranchName="ngModel"
+                                [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }"
+                                required autocomplete="off" 
+                                >
+                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">BranchName is required</mat-error>
+                                <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">BranchName Incorrect</mat-error>
+                            </mat-form-field>
+
+                            <!-- Payment Method -->
+                            <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>Payment Methode</mat-label>
+                                <mat-select required matInput #PaymentMethode="ngModel"
+                                  name="PaymentMethode" [(ngModel)]="BankDetails.PaymentMethode">
+                                  <mat-option>None</mat-option>
+                                  <mat-option value="option1">PayPal</mat-option>
+                                  <mat-option value="option2">Tez</mat-option>
+                                  <mat-option value="option3">PhonePe</mat-option>
+                                  <!-- <mat-option value="option3">ETH</mat-option> -->
+                                </mat-select>
+                                <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+                                  <span [hidden]="!Currency.errors.required" class="error"
+                                  translate>Please select option </span> -->
+                                  <mat-error *ngIf="Currency.invalid && BankDetails.submitted && Currency.errors?.required">AccountNo is required</mat-error>
+                                  <!-- </mat-error> -->
+                              </mat-form-field>
+
+                               <!-- Receiver Address -->
+                            <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>Transaction ID</mat-label>
+                                <input matInput placeholder="Amount" class="matInputt"
+                                autocomplete="off" [(ngModel)]="model.BranchName"
+                                name="BranchName" 
+                                #BranchName="ngModel"
+                                [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }"
+                                required autocomplete="off" 
+                                >
+                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">BranchName is required</mat-error>
+                                <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">BranchName Incorrect</mat-error>
+                            </mat-form-field>
+
+                            <a class="PopupBankDetailsLink" data-toggle="modal" data-target="#exampleModalCenter">For Bank Details Click Here..</a>
+                            
+                            <!-- Immage Upload -->
+                            <h6>Proof Image</h6>   
+                            <div class="image-preview mb-3 text-center" *ngIf="previewUrl">
+                              <img [src]="previewUrl" height="100" />                 
+                          </div>        
+                            <div class="form-group text-center">
+                                <input type="file" name="image" (change)="fileProgress($event)" />
+                            </div>
+                            <!-- <div *ngIf="fileUploadProgress">
+                                Upload progress: {{ fileUploadProgress }}
+                            </div> -->
+                            
+                
+                            <div class="mb-3" *ngIf="uploadedFilePath">
+                                {{uploadedFilePath}}
+                            </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+       <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button><br>
+            <h3 class="text-center">Bank Details</h3>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="Bank_Details_Popup">
+                    <label>Bank Name : ABC</label>
+                    <label>Account Holder Name : xxxx</label>
+                    <label>Account Number : 59357901250468935</label>
+                    <label>IBAN Code : 144728</label>
+                    <label>Country : India</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="Bank_Details_View" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Model View Section End -->
+
+                        <!-- Button -->
+                        <div class="text-center">
+                          <button class="SEND_Btn">Submit</button>
+                        </div>
+
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="Deposit_Section mb-4">
+                      <h2 class="Dashboard_Heading mt-4">Withdraw</h2>
+                      <p class="SEND_RECIVE_DESC">Avaliable Balance : 0.0011251 BTC</p>
+                          <!-- Currency -->
+                          <mat-form-field appearance="outline" class="col-lg-12">
+                              <mat-label>Select Your Currency</mat-label>
+                              <mat-select required matInput #Currency="ngModel"
+                                name="Currency" [(ngModel)]="BankDetails.Currency">
+                                <mat-option>None</mat-option>
+                                <mat-option value="option1">BTC</mat-option>
+                                <mat-option value="option2">ERK</mat-option>
+                                <mat-option value="option3">LIT</mat-option>
+                                <mat-option value="option3">ETH</mat-option>
+                              </mat-select>
+                              <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+                                <span [hidden]="!Currency.errors.required" class="error"
+                                translate>Please select option </span> -->
+                                <mat-error *ngIf="Currency.invalid && BankDetails.submitted && Currency.errors?.required">Select Your Account</mat-error>
+                                <!-- </mat-error> -->
+                            </mat-form-field> 
+
+                            <!-- Receiver Address -->
+                            <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>Withdraw Amount</mat-label>
+                                <input matInput placeholder="Amount" class="matInputt"
+                                autocomplete="off" [(ngModel)]="model.BranchName"
+                                name="BranchName" 
+                                #BranchName="ngModel"
+                                [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }"
+                                required autocomplete="off" 
+                                >
+                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">BranchName is required</mat-error>
+                                <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">BranchName Incorrect</mat-error>
+                            </mat-form-field>
+
+                            <!-- Currency -->
+                          <mat-form-field appearance="outline" class="col-lg-12">
+                              <mat-label>Select Your Bank</mat-label>
+                              <mat-select required matInput #Bank="ngModel"
+                                name="Bank" [(ngModel)]="BankDetails.Bank">
+                                <mat-option>None</mat-option>
+                                <mat-option value="option1">SBI</mat-option>
+                                <mat-option value="option2">IOB</mat-option>
+                                <mat-option value="option3">CANARA</mat-option>
+                                <mat-option value="option3">INDIAN</mat-option>
+                              
+                              </mat-select>
+                              <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+                                <span [hidden]="!Currency.errors.required" class="error"
+                                translate>Please select option </span> -->
+                                <mat-error *ngIf="Bank.invalid && BankDetails.submitted && Bank.errors?.required">Select Your Account</mat-error>
+                                <!-- </mat-error> -->
+                            </mat-form-field> 
+
+                            <!-- Immage Upload -->
+                            <h6>Proof Image</h6>   
+                            <div class="image-preview mb-3 text-center" *ngIf="previewUrl">
+                              <img [src]="previewUrl" height="100" />                 
+                          </div>        
+                            <div class="form-group text-center">
+                                <input type="file" name="image" (change)="fileProgress($event)" />
+                            </div>
+                            <!-- <div *ngIf="fileUploadProgress">
+                                Upload progress: {{ fileUploadProgress }}
+                            </div> -->
+                            
+                
+                            <div class="mb-3" *ngIf="uploadedFilePath">
+                                {{uploadedFilePath}}
+                            </div>
+                            <div class="text-center">
+                              <button class="SEND_Btn">Submit</button>
+                            </div>
+                            
+                            <div class="col-lg-12 Display_Bank_Details">
+                              <label>Bank Name :</label>
+                              <label>Bank Account Number :</label>  
+                              <label>Accpunt Holder Name :</label>
+                              <label>Country :</label>                        
+                            </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <!-- <div class="Dashboard-UserDetails">
+              <div class="col-lg-12">
+                <div class="row">
+                    <div class="pull-left col-lg-6">
+                        <h5 class="HISTORY_Heading">History</h5>
+                    </div>
+                    <div class="pull-left col-lg-6">
+                        <form class="MarketPriceInput1 pull-right" style="display: inline-flex">
+                          <input type="text" placeholder="Search">
+                          <span><i class="fa fa-search" style="margin-left: -35px;    margin-top: 10px;
+                          color: gray;" aria-hidden="true"></i></span>
+                        </form>
+                    </div>  
+                  </div>
+              </div>
+          </div> -->
+
+          <div class="mat-elevation-z8 mt-4">
+            <table mat-table [dataSource]="dataSource" class="col-lg-12 text-center">
+          
+              <!-- Position Column -->
+              <!-- <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container> -->
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Date & Time </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+          
+              <!-- Weight Column -->
+              <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+              </ng-container>
+                 <!-- Symbol Column -->
+                 <ng-container matColumnDef="Fee">
+                    <th mat-header-cell *matHeaderCellDef>Fee Amount</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Fee}} </td>
+                  </ng-container>
+          
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef> Transaction ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef>Status </th>
+                    <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.Status === 'Incompleted' ? 'red' : 'green' }"> {{element.Status}} </td>
+                  </ng-container>
+
+                
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[10 ,20, 25]"></mat-paginator>
+          </div> 
+        </div>
+          <!-- <div class="col-lg-12 Dashboard-UserDetails" style="height: 56px;">
+            <div class="pull-left">
+              <h5 class="HISTORY_Heading">History</h5>
+            </div>
+            <div class="">
+              <form class="MarketPriceInput1 pull-right" style="display: inline-flex">
+                <input type="text" placeholder="Search">
+                <span><i class="fa fa-search" style="margin-left: -35px;    margin-top: 10px;
+                color: gray;" aria-hidden="true"></i></span>
+                </form> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+<section style="margin-top: 130px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="Tab_Section">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Deposit</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Withdraw</a>
+                        <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="container-fluid"> -->
+        <!-- <div class="row">
+            <div class="col-lg-12"> -->
+
+
+
+
+							<!-- Withdraw Tab -->
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="Deposit_Section mb-4">
+                                        <h2 class="Dashboard_Heading mt-4">Withdraw</h2>
+                                        <p class="SEND_RECIVE_DESC">Avaliable Balance : 0.0011251 BTC</p>
+                                        <form (ngSubmit)="BankDetails.form.valid" #BankDetails="ngForm" novalidate>
+                                            <!-- Currency -->
+                                            <mat-form-field appearance="outline" class="col-lg-12">
+                                                <mat-label>Select Your Currency</mat-label>
+                                                <mat-select required matInput #Currency="ngModel" name="Currency" [(ngModel)]="BankDetails.Currency">
+                                                    <mat-option>None</mat-option>
+                                                    <mat-option value="option1">BTC</mat-option>
+                                                    <mat-option value="option2">ERK</mat-option>
+                                                    <mat-option value="option3">LIT</mat-option>
+                                                    <mat-option value="option3">ETH</mat-option>
+                                                </mat-select>
+                                                <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+													<span [hidden]="!Currency.errors.required" class="error"
+													translate>Please select option </span> -->
+                                                <mat-error *ngIf="Currency.invalid && BankDetails.submitted && Currency.errors?.required">Select Your Account</mat-error>
+                                                <!-- </mat-error> -->
+                                            </mat-form-field>
+
+                                            <!-- Receiver Address -->
+                                            <mat-form-field appearance="outline" class="col-lg-12">
+                                                <mat-label>Withdraw Amount</mat-label>
+                                                <input matInput placeholder="Amount" class="matInputt" autocomplete="off" [(ngModel)]="model.BranchName" name="BranchName" #BranchName="ngModel" [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }" required autocomplete="off">
+                                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">BranchName is required</mat-error>
+                                                <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">BranchName Incorrect</mat-error>
+                                            </mat-form-field>
+
+                                            <!-- Currency -->
+                                            <mat-form-field appearance="outline" class="col-lg-12">
+                                                <mat-label>Select Your Bank</mat-label>
+                                                <mat-select required matInput #Bank="ngModel" name="Bank" [(ngModel)]="BankDetails.Bank">
+                                                    <mat-option>None</mat-option>
+                                                    <mat-option value="option1">SBI</mat-option>
+                                                    <mat-option value="option2">IOB</mat-option>
+                                                    <mat-option value="option3">CANARA</mat-option>
+                                                    <mat-option value="option3">INDIAN</mat-option>
+
+                                                </mat-select>
+                                                <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+													<span [hidden]="!Currency.errors.required" class="error"
+													translate>Please select option </span> -->
+                                                <mat-error *ngIf="Bank.invalid && BankDetails.submitted && Bank.errors?.required">Select Your Account</mat-error>
+                                                <!-- </mat-error> -->
+                                            </mat-form-field>
+
+																						<div class="text-center UploadImg mb-4">
+																								<img src="assets/images/1200px-Add_user_icon_(blue).png" class="" alt="app-dashboard-header">
+																								<!-- <p class="KYC_Desc">Your Selfie will help us to make sure that we delivery to the right Person</p>
+																								<button class="KYC_Upload">Upload</button> -->
+																						</div>
+                                            <div class="text-center">
+                                                <button class="SEND_Btn">Submit</button>
+                                            </div>
+
+                                            <div class="col-lg-12 Display_Bank_Details">
+                                                <label>Bank Name :</label>
+                                                <label>Bank Account Number :</label>
+                                                <label>Accpunt Holder Name :</label>
+                                                <label>Country :</label>
+                                            </div>
+                                        </form>
+                                    </div>
+																</div>
+																
+																<div class="col-lg-12">
+																		<div class="Dashboard-UserDetails">
+																				<!-- <div class="col-lg-12"> -->
+																						<!-- <div class="row"> -->
+																								<div class="pull-left col-lg-6">
+																										<h5 class="HISTORY_Heading">History</h5>
+																								</div>
+																								<div class="pull-left col-lg-6">
+																										<form class="MarketPriceInput1 pull-right" style="display: inline-flex">
+																												<input type="text" placeholder="Search">
+																												<span><i class="fa fa-search" style="margin-left: -35px;margin-top: 10px;color: gray;" aria-hidden="true"></i></span>
+																										</form>
+																								</div>
+																						<!-- </div> -->
+																				<!-- </div> -->
+																		</div>
+																</div>
+
+                                <div class="col-lg-12">
+                                    <div class="mat-elevation-z8 mt-4">
+                                        <table mat-table [dataSource]="dataSource" class="col-lg-12 text-center">
+
+                                            <!-- Position Column -->
+                                            <!-- <ng-container matColumnDef="position">
+									<th mat-header-cell *matHeaderCellDef> No. </th>
+									<td mat-cell *matCellDef="let element"> {{element.position}} </td>
+								</ng-container> -->
+
+                                            <!-- Name Column -->
+                                            <ng-container matColumnDef="name">
+                                                <th mat-header-cell *matHeaderCellDef> Date & Time </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                            </ng-container>
+
+                                            <!-- Weight Column -->
+                                            <ng-container matColumnDef="weight">
+                                                <th mat-header-cell *matHeaderCellDef> Amount </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                            </ng-container>
+                                            <!-- Symbol Column -->
+                                            <ng-container matColumnDef="Fee">
+                                                <th mat-header-cell *matHeaderCellDef> Payment </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.Fee}} </td>
+                                            </ng-container>
+
+                                            <!-- Symbol Column -->
+                                            <ng-container matColumnDef="symbol">
+                                                <th mat-header-cell *matHeaderCellDef> Transaction ID </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                            </ng-container>
+
+                                            <!-- Symbol Column -->
+                                            <ng-container matColumnDef="Status">
+                                                <th mat-header-cell *matHeaderCellDef>Status </th>
+                                                <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.Status === 'Incompleted' ? 'red' : 'green' }"> {{element.Status}} </td>
+                                            </ng-container>
+
+
+
+                                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                        </table>
+
+                                        <mat-paginator [pageSizeOptions]="[11 ,20, 25]"></mat-paginator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+										<!-- Withdraw Tab End -->
+
+
+
+										<!-- Deposit Tab Start  -->
+
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="Deposit_Section mb-4">
+                                        <h2 class="Dashboard_Heading mt-4">Deposit</h2>
+                                        <p class="SEND_RECIVE_DESC">Avaliable Balance : 0.0011251 USD</p>
+                                        <form (ngSubmit)="BankDetails.form.valid" #BankDetails="ngForm" novalidate>
+
+                                            <!-- Currency -->
+                                            <mat-form-field appearance="outline" class="col-lg-12">
+                                                <mat-label>Select Your Currency</mat-label>
+                                                <mat-select required matInput #Currency="ngModel" name="Currency" [(ngModel)]="BankDetails.Currency">
+                                                    <mat-option>None</mat-option>
+                                                    <mat-option value="option1">BTC</mat-option>
+                                                    <mat-option value="option2">ERK</mat-option>
+                                                    <mat-option value="option3">LIT</mat-option>
+                                                    <mat-option value="option3">ETH</mat-option>
+                                                </mat-select>
+                                                <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+															<span [hidden]="!Currency.errors.required" class="error"
+															translate>Please select option </span> -->
+                                                <mat-error *ngIf="Currency.invalid && BankDetails.submitted && Currency.errors?.required">AccountNo is required</mat-error>
+                                                <!-- </mat-error> -->
+                                            </mat-form-field>
+
+                                            <!-- Receiver Address -->
+                                            <mat-form-field appearance="outline" class="col-lg-12">
+                                                <mat-label>Deposit Amount</mat-label>
+                                                <input matInput placeholder="Amount" class="matInputt" autocomplete="off" [(ngModel)]="model.BranchName" name="BranchName" #BranchName="ngModel" [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }" required autocomplete="off">
+                                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">BranchName is required</mat-error>
+                                                <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">BranchName Incorrect</mat-error>
+                                            </mat-form-field>
+
+                                            <!-- Payment Method -->
+                                            <mat-form-field appearance="outline" class="col-lg-12">
+                                                <mat-label>Payment Method</mat-label>
+                                                <mat-select required matInput #PaymentMethod="ngModel" name="PaymentMethod" [(ngModel)]="BankDetails.PaymentMethod">
+                                                    <mat-option>None</mat-option>
+                                                    <mat-option value="option1">PayPal</mat-option>
+                                                    <mat-option value="option2">Tez</mat-option>
+                                                    <mat-option value="option3">PhonePe</mat-option>
+                                                    <!-- <mat-option value="option3">ETH</mat-option> -->
+                                                </mat-select>
+                                                <!-- <mat-error *ngIf="Currency.errors && (Currency.dirty || Currency.touched || submitted)">
+																<span [hidden]="!Currency.errors.required" class="error"
+																translate>Please select option </span> -->
+                                                <mat-error *ngIf="Currency.invalid && BankDetails.submitted && Currency.errors?.required">AccountNo is required</mat-error>
+                                                <!-- </mat-error> -->
+                                            </mat-form-field>
+
+                                            <!-- Receiver Address -->
+                                            <mat-form-field appearance="outline" class="col-lg-12">
+                                                <mat-label>Transaction ID</mat-label>
+                                                <input matInput placeholder="Amount" class="matInputt" autocomplete="off" [(ngModel)]="model.BranchName" name="BranchName" #BranchName="ngModel" [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }" required autocomplete="off">
+                                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">BranchName is required</mat-error>
+                                                <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                                <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">BranchName Incorrect</mat-error>
+                                            </mat-form-field>
+
+                                            <a class="PopupBankDetailsLink" data-toggle="modal" data-target="#exampleModalCenter" style="cursor:pointer">For Bank Details Click Here..</a>
+
+																						<div class="text-center UploadImg mb-4">
+																								<img src="assets/images/1200px-Add_user_icon_(blue).png" class="" alt="app-dashboard-header">
+																								<!-- <p class="KYC_Desc">Your Selfie will help us to make sure that we delivery to the right Person</p>
+																								<button class="KYC_Upload">Upload</button> -->
+																						</div>
+                                         
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+					</button><br>
+                                                            <h3 class="text-center">Bank Details</h3>
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="Bank_Details_Popup">
+                                                                            <label>Bank Name : ABC</label>
+                                                                            <label>Account Holder Name : xxxx</label>
+                                                                            <label>Account Number : 59357901250468935</label>
+                                                                            <label>IBAN Code : 144728</label>
+                                                                            <label>Country : India</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="Bank_Details_View" data-dismiss="modal">Close</button>
+                                                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Model View Section End -->
+
+                                            <!-- Button -->
+                                            <div class="text-center">
+                                                <button class="SEND_Btn">Submit</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+																</div>
+																<div class="col-lg-6">
+																	
+																		<!-- <div class="container"> -->
+																				<div class="Deposit_Section mb-4">
+																				<div class="row">
+																						<div class="col-lg-12">
+																								<h3 class="text-center">Bank Details</h3>
+																								<div class="Bank_Details_Popup">
+																										<label>Bank Name : ABC</label>
+																										<label>Account Holder Name : xxxx</label>
+																										<label>Account Number : 59357901250468935</label>
+																										<label>IBAN Code : 144728</label>
+																										<label>Country : India</label>
+																								</div>
+																						</div>
+																				</div>
+																				<div class="row">
+																						<div class="col-lg-12">
+																								<div class="Dashboard-UserDetails">
+																										<!-- <div class="col-lg-12"> -->
+																												<!-- <div class="row"> -->
+																														<div class="pull-left col-lg-6">
+																																<h5 class="HISTORY_Heading">History</h5>
+																														</div>
+																														<div class="pull-left col-lg-6">
+																																<form class="MarketPriceInput1 pull-right" style="display: inline-flex">
+																																		<input type="text" placeholder="Search">
+																																		<span><i class="fa fa-search" style="margin-left: -35px;margin-top: 10px;color: gray;" aria-hidden="true"></i></span>
+																																</form>
+																														</div>
+																												<!-- </div> -->
+																										<!-- </div> -->
+																								</div>
+																						</div>
+						
+																						<div class="col-lg-12">
+																								<div class="mat-elevation-z8 mt-4">
+																										<table mat-table [dataSource]="dataSource" class="col-lg-12 text-center">
+						
+																												<!-- Position Column -->
+																												<!-- <ng-container matColumnDef="position">
+																		<th mat-header-cell *matHeaderCellDef> No. </th>
+																		<td mat-cell *matCellDef="let element"> {{element.position}} </td>
+																	</ng-container> -->
+						
+																												<!-- Name Column -->
+																												<ng-container matColumnDef="name">
+																														<th mat-header-cell *matHeaderCellDef> Date & Time </th>
+																														<td mat-cell *matCellDef="let element"> {{element.name}} </td>
+																												</ng-container>
+						
+																												<!-- Weight Column -->
+																												<ng-container matColumnDef="weight">
+																														<th mat-header-cell *matHeaderCellDef> Amount </th>
+																														<td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+																												</ng-container>
+																												<!-- Symbol Column -->
+																												<ng-container matColumnDef="Fee">
+																														<th mat-header-cell *matHeaderCellDef>Payment </th>
+																														<td mat-cell *matCellDef="let element"> {{element.Fee}} </td>
+																												</ng-container>
+						
+																												<!-- Symbol Column -->
+																												<ng-container matColumnDef="symbol">
+																														<th mat-header-cell *matHeaderCellDef> Transaction ID </th>
+																														<td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+																												</ng-container>
+						
+																												<!-- Symbol Column -->
+																												<ng-container matColumnDef="Status">
+																														<th mat-header-cell *matHeaderCellDef>Status </th>
+																														<td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.Status === 'Incompleted' ? 'red' : 'green' }"> {{element.Status}} </td>
+																												</ng-container>
+						
+						
+						
+																												<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+																												<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+																										</table>
+						
+																										<mat-paginator [pageSizeOptions]="[5 ,10, 20]"></mat-paginator>
+																								</div>
+																						</div>
+																				</div>
+																		</div>
+																</div>
+
+																<div class="col-lg-12">
+																		<div class="Dashboard-UserDetails">
+																				<!-- <div class="col-lg-12"> -->
+																						<!-- <div class="row"> -->
+																								<div class="pull-left col-lg-6">
+																										<h5 class="HISTORY_Heading">History</h5>
+																								</div>
+																								<div class="pull-left col-lg-6">
+																										<form class="MarketPriceInput1 pull-right" style="display: inline-flex">
+																												<input type="text" placeholder="Search">
+																												<span><i class="fa fa-search" style="margin-left: -35px;margin-top: 10px;color: gray;" aria-hidden="true"></i></span>
+																										</form>
+																								</div>
+																						<!-- </div> -->
+																				<!-- </div> -->
+																		</div>
+																</div>
+
+                                <div class="col-lg-12">
+                                    <div class="mat-elevation-z8 mt-4">
+                                        <table mat-table [dataSource]="dataSource" class="col-lg-12 text-center">
+
+                                            <!-- Position Column -->
+                                            <!-- <ng-container matColumnDef="position">
+												<th mat-header-cell *matHeaderCellDef> No. </th>
+												<td mat-cell *matCellDef="let element"> {{element.position}} </td>
+											</ng-container> -->
+
+                                            <!-- Name Column -->
+                                            <ng-container matColumnDef="name">
+                                                <th mat-header-cell *matHeaderCellDef> Date & Time </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                            </ng-container>
+
+                                            <!-- Weight Column -->
+                                            <ng-container matColumnDef="weight">
+                                                <th mat-header-cell *matHeaderCellDef> Amount </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                            </ng-container>
+                                            <!-- Symbol Column -->
+                                            <ng-container matColumnDef="Fee">
+                                                <th mat-header-cell *matHeaderCellDef>Payment </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.Fee}} </td>
+                                            </ng-container>
+
+                                            <!-- Symbol Column -->
+                                            <ng-container matColumnDef="symbol">
+                                                <th mat-header-cell *matHeaderCellDef> Transaction ID </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                            </ng-container>
+
+                                            <!-- Symbol Column -->
+                                            <ng-container matColumnDef="Status">
+                                                <th mat-header-cell *matHeaderCellDef>Status </th>
+                                                <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.Status === 'Incompleted' ? 'red' : 'green' }"> {{element.Status}} </td>
+                                            </ng-container>
+
+
+
+                                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                        </table>
+
+                                        <mat-paginator [pageSizeOptions]="[11 ,20, 25]"></mat-paginator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+										</div>
+										<!-- Deposit Tab Ends -->
+
+                </div>
+            <!-- </div>
+        </div> -->
+    <!-- </div> -->
+
+</section>

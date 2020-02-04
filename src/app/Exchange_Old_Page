@@ -1,0 +1,247 @@
+Exchange Page Old code
+<!-- <app-dashboard-header></app-dashboard-header>
+<div class="container-fluid">
+<div class="row" style="background-color:#F5F8FF">
+  <div class="col-lg-2">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="col-lg-10"> -->
+<!-- Dashboard UserDetails Section -->
+<section style="margin-top:169px;">
+        <div class="container">
+          <div class="Dashboard-UserDetails text-center mt-4" ><div class="row">
+              <!-- <div class="col-lg-12 col-sm-12 ">
+                  <div class="row"> -->
+                    <div class="col-lg-3 col-sm-12">
+                      <div class="Dashboard-UserDetails-List">
+                        <strong>Account Status :</strong> <p class="Dashboard_UserDetails-Status"> Approved </p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                      <div class="Dashboard-UserDetails-List">
+                          <strong>Account Created On :</strong> <p class="Dashboard_UserDetails-Date"> 28/02/2020 </p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                      <div class="Dashboard-UserDetails-List">
+                          <strong>Account Number :</strong> <p class="Dashboard_UserDetails-Ac-Number"> SDF945783 </p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                      <div class="Dashboard-UserDetails-List1">
+                         <button routerLink='/Send_Receive' class="DashboardBtn">Send <span style="margin: 0px 7px;">/</span> Receive</button>
+                      </div>
+                    </div>
+          </div>
+                  <!-- </div>
+                </div> -->
+          </div>
+        </div>
+      </section>
+
+<!-- Martket Parice Section -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="Dashboard_Heading mt-4">Market Price</h2>
+      </div>
+    </div>
+      <div class="Dashboard_MarketPrice_Section"><div class="row">
+        <div class="col-lg-3 Dashboard_MarketPrice_List">
+          <div class="Dashboard_MarketPrice_List1">
+            <p class="pull-right" style="color:green"><i class="fa fa-caret-up" aria-hidden="true"></i> 0.84%</p><br>
+            <h5 class="Dashboard_Market_Price_Heading">Bitcoin</h5><span class="Dashboard_Market_Price_Desc">BTC</span><br>
+            <div class="Dashboard_Market_Price_GraphSection">
+              <div class="pull-left">
+                  <span class="Dashboard_Market_Price_Desc">$ 23.565</span><br>
+                  <span class="Dashboard_Market_Price_Desc">1.00</span>
+              </div> 
+              <div class="pull-right" >
+                <img src="assets/images/graph1.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 Dashboard_MarketPrice_List">
+            <div class="Dashboard_MarketPrice_List1">
+              <p class="pull-right" style="color:red"><i class="fa fa-caret-down" aria-hidden="true"></i> 0.84%</p><br>
+              <h5 class="Dashboard_Market_Price_Heading">Bitcoin</h5><span class="Dashboard_Market_Price_Desc">BTC</span>            
+              <div class="Dashboard_Market_Price_GraphSection">
+                  <div class="pull-left">
+                      <span class="Dashboard_Market_Price_Desc">$ 23.565</span><br>
+                      <span class="Dashboard_Market_Price_Desc">1.00</span>
+                  </div> 
+                  <div class="pull-right" >
+                    <img src="assets/images/graph2.png" alt="">
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-3 Dashboard_MarketPrice_List">
+              <div class="Dashboard_MarketPrice_List1">
+                <p class="pull-right" style="color:green"><i class="fa fa-caret-up" aria-hidden="true"></i> 0.84%</p><br>
+                <h5 class="Dashboard_Market_Price_Heading">Bitcoin</h5><span class="Dashboard_Market_Price_Desc">BTC</span>
+                <div class="Dashboard_Market_Price_GraphSection">
+                    <div class="pull-left">
+                        <span class="Dashboard_Market_Price_Desc">$ 23.565</span><br>
+                        <span class="Dashboard_Market_Price_Desc">1.00</span>
+                    </div> 
+                    <div class="pull-right" >
+                      <img src="assets/images/grahp3.png" alt="">
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-lg-3 Dashboard_MarketPrice_List">
+                <div class="Dashboard_MarketPrice_List1">
+                  <p class="pull-right" style="color:red"><i class="fa fa-caret-down" aria-hidden="true"></i> 0.84%</p><br>
+                  <h5 class="Dashboard_Market_Price_Heading">Bitcoin</h5><span class="Dashboard_Market_Price_Desc">BTC</span>
+                  <div class="Dashboard_Market_Price_GraphSection">
+                      <div class="pull-left">
+                          <span class="Dashboard_Market_Price_Desc">$ 23.565</span><br>
+                          <span class="Dashboard_Market_Price_Desc">1.00</span>
+                      </div> 
+                      <div class="pull-right" >
+                        <img src="assets/images/graph4.png" alt="">
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 ">
+          <h2 class="Dashboard_Heading mt-4 mb-4">Exchange</h2>
+          <div class="Exchange_Section">
+            <h4 class="Exchange_heading">You Have</h4>
+            <form (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+            <div class="row">
+                
+                <div class="col-lg-6 text-center">
+                    <input type="text" class="Exchange_Input"
+                        minlength="4" maxlength="25"
+                        [(ngModel)]="model.firstname" 
+                        name="firstname" 
+                        #firstname="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
+                        required autocomplete="off" 
+                        ><br>
+                        <mat-error style="font-size:14px" *ngIf="firstname.invalid && f.submitted && firstname.errors?.required">Enter the Amount</mat-error>
+                        <!-- <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.minlength">firstname should have minimum 4 characters</mat-error> -->
+                        <!-- <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.maxlength">firstname should have maximum 20 characters</mat-error> -->
+                    </div>
+                  <div class="col-lg-6 text-center">
+                    <mat-form-field>
+                        <mat-label>Currency</mat-label>
+                        <mat-select [(value)]="selected"  panelClass="my-panel" >
+                          <mat-option>NONE</mat-option>
+                          <mat-option value="option1">ETH</mat-option>
+                          <mat-option value="option2">LIT</mat-option>
+                          <mat-option value="option3">ERK</mat-option>
+                          <mat-option value="option3">BTC</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      
+                    </div>
+                    <div class="text-center col-lg-12">
+                        <!-- <img src="assets/images/transfer(3).png" alt="" style="    background-color: lightgray;
+                        border-radius: 55%;
+                        height: 18px;
+                        padding: 5px;
+                        margin-top: 6px;"> -->
+                        <mat-icon class="SWAP_Change">swap_horizontal_circle</mat-icon>
+                        <hr class="line">
+                      </div>
+                      <div class="col-lg-12">
+                          <h4 class="Exchange_heading">You Get</h4>
+                      </div>
+                      
+                      <div class="col-lg-6 text-center">
+                            <input type="text" class="Exchange_Input"
+                                minlength="4" maxlength="25"
+                                [(ngModel)]="model.firstname" 
+                                name="firstname" 
+                                #firstname="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
+                                required autocomplete="off" 
+                                ><br>
+                                <mat-error style="font-size:14px" *ngIf="firstname.invalid && f.submitted && firstname.errors?.required">Enter the Amount</mat-error>
+                                <!-- <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.minlength">firstname should have minimum 4 characters</mat-error> -->
+                                <!-- <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.maxlength">firstname should have maximum 20 characters</mat-error> -->
+                            </div>
+                        <div class="col-lg-6 text-center">
+                            <mat-form-field>
+                                <mat-label>Currency</mat-label>
+                                <mat-select [(value)]="selected"  panelClass="my-panel" >
+                                  <mat-option>NONE</mat-option>
+                                  <mat-option value="option1">ETH</mat-option>
+                                  <mat-option value="option2">LIT</mat-option>
+                                  <mat-option value="option3">ERK</mat-option>
+                                  <mat-option value="option3">BTC</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                          </div>
+                        <div class="col-12 mt-2 text-center" fxLayoutAlign="center center">
+                            <button class="ExchangeBtn">Exchange</button>
+                        </div>
+                        
+                    </div>  
+                </form>
+          
+          </div>
+ 
+      </div>
+      <div class="col-lg-8 col-sm-8">
+            <h2 class="Dashboard_Heading mt-4 mb-4">Exchange History</h2>
+        
+        <div class="mat-elevation-z8 mt-2">
+            <table mat-table [dataSource]="dataSource" class="col-lg-12 text-center">
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Date & Time </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="weight">
+                    <th mat-header-cell *matHeaderCellDef> Amount </th>
+                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Fee">
+                    <th mat-header-cell *matHeaderCellDef>Payment </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Fee}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                    <th mat-header-cell *matHeaderCellDef> Transaction ID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef>Status </th>
+                    <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.Status === 'Incompleted' ? 'red' : 'green' }"> {{element.Status}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5 ,10, 20]"></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

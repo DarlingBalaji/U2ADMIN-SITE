@@ -1,0 +1,155 @@
+
+      <nav class="navbar navbar-expand-md navpadding" style="background-color: #020748">
+          <!-- Brand -->
+          <a class="navbar-brand" routerLink='/HomePage'><img src="/assets/images/logo.png"></a>
+        
+          <!-- Toggler/collapsibe Button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <mat-icon style="color:black">menu</mat-icon>
+          </button>
+        
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                      <li class="nav-item active">
+                        <a routerLink='/HomePage' class="nav-link">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a routerLink='/HomePage' class="nav-link">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a routerLink='/HomePage' class="nav-link">Service</a>
+                      </li>
+                      <li class="nav-item">
+                        <a routerLink='/HomePage' class="nav-link">Blog</a>
+                      </li>
+                      <!-- <li class="nav-item">
+                        <a class="nav-link" data="id_services" ng-reflect-ngx-scroll-to="#contact" >Fees</a>
+                      </li> -->
+                      <li class="nav-item">
+                        <a routerLink='/HomePage' class="nav-link" >Contact Us</a>
+                      </li>
+                        <li class="nav-item">
+                        <button href="#" class="btn navBtn" >Get a Quote</button>
+                      </li>
+                </ul>
+          </div>
+        </nav> 
+
+<section style="background-color:#F5F8FF">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mt-4">
+          <div class="FAQ_Heading">
+              <h2>FAQ</h2>
+          </div>
+      </div>
+      <div class="col-lg-8 mb-4">
+        <div>
+            <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <div class="FAQ_Accordion">
+                      <p>How to Create Account</p>
+                    </div>
+                  </mat-expansion-panel-header>
+                  <p>I'm visible because I am open</p>
+                </mat-expansion-panel><div class="Space_Accordion"></div>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                      <div class="FAQ_Accordion">
+                          <p>How to Exchange Currency</p>
+                        </div>
+                  </mat-expansion-panel-header>
+                  <p>I'm visible because I am open</p>
+                </mat-expansion-panel><div class="Space_Accordion"></div>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                      <div class="FAQ_Accordion">
+                          <p>How to Exchange with Other User's</p>
+                        </div>
+                  </mat-expansion-panel-header>
+                  <p>I'm visible because I am open</p>
+                </mat-expansion-panel><div class="Space_Accordion"></div>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                      <div class="FAQ_Accordion">
+                          <p>How to Sign-up with UsADMIN</p>
+                        </div>
+                  </mat-expansion-panel-header>
+                  <p>I'm visible because I am open</p>
+                </mat-expansion-panel><div class="Space_Accordion"></div>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                      <div class="FAQ_Accordion">
+                          <p>How to Create Account</p>
+                        </div>
+                  </mat-expansion-panel-header>
+                  <p>I'm visible because I am open</p>
+                </mat-expansion-panel><div class="Space_Accordion"></div>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                      <div class="FAQ_Accordion">
+                          <p>How to Create Account</p>
+                        </div>
+                  </mat-expansion-panel-header>
+                  <p>I'm visible because I am open</p>
+                </mat-expansion-panel><div class="Space_Accordion"></div>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                <div class="FAQ_Accordion">
+                    <p>How to Create Account</p>
+                  </div>
+                </mat-expansion-panel-header>
+                <p>I'm visible because I am open</p>
+                </mat-expansion-panel><div class="Space_Accordion"></div>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                <div class="FAQ_Accordion">
+                    <p>How to Create Account</p>
+                  </div>
+                </mat-expansion-panel-header>
+                <p>I'm visible because I am open</p>
+                </mat-expansion-panel>
+              </mat-accordion>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="FAQ_Section">
+          <p>Still You  Have a Question</p>
+          <mat-form-field appearance="outline" class="col-lg-12">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Placeholder" autocomplete="off">
+              <mat-icon matSuffix>contacts</mat-icon>
+              <!-- <mat-hint>Hint</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col-lg-12">
+              <mat-label>E-mail</mat-label>
+              <input matInput placeholder="Enter your email" required autocomplete="off">
+              <mat-icon matSuffix>contact_mail</mat-icon>
+              <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="example-full-width col-lg-12">
+              <mat-label>Leave Your Message Here</mat-label>
+              <textarea matInput rows="5" placeholder="Leave a comment"></textarea>
+          </mat-form-field>
+          <div class="text-center">
+              <button class="FAQ_Btn">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>      
+  
+    
+<section class="FooterBackGroungColor">
+    <app-footer></app-footer>
+  </section>

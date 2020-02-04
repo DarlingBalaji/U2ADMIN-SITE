@@ -1,0 +1,465 @@
+ <div class="container" style="margin-top:130px;">
+            <div class="row">
+                <div class="col-lg-6 mt-4">
+                    <h2 class="Dashboard_Heading mt-4" style="margin-left:112px;">Your's Profile</h2>
+                    <div class="Your_Profile_Update">
+                        <p class="text-center">Edit Your Profile Settings</p>
+                        <div class="text-center">
+                            <img src="assets/images/Avator.png" alt="" width="28%" class="ImgHover">
+                        </div>
+                        <!-- Form Section Start -->
+                        <form (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+                            <div class="row"> 
+                                <!-- Name -->
+                                <div class="col-lg-6 Your_Profile_UpdateInput">
+                                    <mat-form-field appearance="outline" class="col-lg-12">
+                                        <mat-label>Name</mat-label>
+                                        <input matInput placeholder="Enter Your Name"
+                                        minlength="4" maxlength="50"
+                                        [(ngModel)]="model.firstname" 
+                                        name="firstname" 
+                                        #firstname="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
+                                        required autocomplete="off" 
+                                        ><br>
+                                        <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.required">firstname is required</mat-error>
+                                        <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.minlength">firstname should have minimum 4 characters</mat-error>
+                                        <mat-error *ngIf="firstname.invalid && f.submitted && firstname.errors?.maxlength">firstname should have maximum 20 characters</mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <!-- Mail_ID -->
+                                <div class="col-lg-6 Your_Profile_UpdateInput">
+                                    <mat-form-field appearance="outline" class="col-lg-12">
+                                        <mat-label>E-mail ID</mat-label>
+                                        <input matInput placeholder="Enter your E-mail ID"
+                                        pattern=".+@.+\..+" 
+                                        [(ngModel)]="model.email"
+                                        name="email" #email="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                                        required autocomplete="off" /><br>
+                                        <mat-error *ngIf="email.invalid && f.submitted && email.errors?.required">Email is required</mat-error>
+                                        <mat-error *ngIf="email.invalid && f.submitted && email.errors?.pattern">Email must be a valid email address</mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="col-lg-6 Your_Profile_UpdateInput">
+                                    <mat-form-field appearance="outline" class="col-lg-12">
+                                        <mat-label>Phone No</mat-label>
+                                        <input matInput placeholder="Enter Your Phone No"
+                                        minlength="10" maxlength="10" [(ngModel)]="model.PhoneNumber" 
+                                        pattern="[7-9]{1}[0-9]{9}"
+                                        name="PhoneNumber" 
+                                        #PhoneNumber="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && PhoneNumber.invalid }"
+                                        required autocomplete="off" 
+                                        >
+                                        <mat-error *ngIf="PhoneNumber.invalid && f.submitted && PhoneNumber.errors?.required">Phone No. is required</mat-error>
+                                        <mat-error *ngIf="PhoneNumber.invalid && f.submitted && PhoneNumber.errors?.minlength">Phone No. should have 10 digits</mat-error>
+                                        <mat-error *ngIf="PhoneNumber.invalid && f.submitted && PhoneNumber.errors?.pattern">Check Your Number </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <!-- Country -->
+                                <div class="col-lg-6 Your_Profile_UpdateInput">
+                                    <mat-form-field appearance="outline" class="col-lg-12">
+                                        <mat-label>Select Your Country</mat-label>
+                                        <mat-select required matInput #Country="ngModel"
+                                            name="Country" [(ngModel)]="f.Country">
+                                            <mat-option>None</mat-option>
+                                            <mat-option value="option1">India</mat-option>
+                                            <mat-option value="option2">Australia</mat-option>
+                                            <mat-option value="option3">Asia</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="Country.errors && (Country.dirty || Country.touched || submitted)">
+                                            <span [hidden]="!Country.errors.required" class="error"
+                                            translate>Please select option </span>
+                                            </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="DashboardBtn">Update</button>
+                            </div>
+                        </form>
+                        <!-- Form Section End -->
+                    </div>
+                </div>
+
+                <!-- Change Password Section -->
+                <div class="col-lg-6 mt-4">
+                    <h2 class="Dashboard_Heading mt-4">Change Password</h2>
+                    <div class="Profile_Change_Password">
+                        <!-- Form Section Start -->
+                        <form [formGroup]="myForm">
+
+                        <!-- Old Password -->
+                        <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>Old Password</mat-label>
+                                <input matInput placeholder="Old password" formControlName="Old_password" [type]="OldPassword ? 'password' : 'text'" required>
+                                <mat-icon style="cursor:pointer" matSuffix (click)="OldPassword = !OldPassword">{{OldPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                <mat-error *ngIf="myForm.hasError('required', 'Old_password')">
+                                    Please enter your Old Password
+                                </mat-error>
+                                <!-- <input matInput placeholder="New Password" autocomplete="off" [type]="NewPassword ? 'password' : 'text'"
+                                name="Old_Password" 
+                                [(ngModel)]="model.Old_Password" #Old_Password="ngModel" 
+                                [ngClass]="{ 'is-invalid': myForm.submitted && Old_Password.invalid }" 
+                                required autocomplete="off" />
+                                <mat-icon style="cursor:pointer" matSuffix (click)="NewPassword = !NewPassword">{{NewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    
+                                <mat-error *ngIf="Old_Password.invalid && myForm.submitted && (Old_Password.errors?.minlength || Old_Password.errors?.pattern)">* 8 Characters one Uppercase, Lowercase, Special Characters, Number </mat-error>
+                                <mat-error *ngIf="Old_Password.invalid && myForm.submitted && Old_Password.errors?.required"> New Password is required!</mat-error>
+                                 -->
+                            </mat-form-field>
+                        <!-- <mat-form-field appearance="outline" class="col-lg-12">
+                            <mat-label>Old Password</mat-label>
+                            <input matInput placeholder="Old Password" class="matInputt" autocomplete="off" [type]="OldPassword ? 'password' : 'text'"
+                            name="Old_Password" 
+                            [(ngModel)]="model.Old_Password" #Old_Password="ngModel" 
+                            [ngClass]="{ 'is-invalid': f.submitted && Old_Password.invalid }" 
+                            required autocomplete="off" />
+                            <mat-icon style="cursor:pointer" matSuffix (click)="OldPassword = !OldPassword">{{OldPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        
+                            <mat-error *ngIf="Old_Password.invalid && ChangePassword.submitted && Old_Password.errors?.required"> Confirm Password is required!</mat-error>
+                            <mat-error *ngIf="ChangePassword.submitted && pass.value != cpass.value && !cpass.errors?.required">Password does not match password confirmation.</mat-error>
+                           
+                        </mat-form-field> -->
+
+                        <!-- New Password -->
+                        <!-- <div formGroupName="matching_passwords"> -->
+                            <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>New Password</mat-label>
+                                <input matInput placeholder="New password"
+                                pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                                formControlName="password" required autocomplete="off">
+                                <mat-error *ngIf="myForm.hasError('required', 'password')">
+                                    Please enter your newpassword
+                                </mat-error>
+                                <mat-error *ngIf="myForm.hasError('pattern', 'password')">
+                                 Uppercase, Lowercase, Number and 8 Characters
+                                </mat-error>
+                                <!-- <input matInput placeholder="New Password" autocomplete="off" [type]="NewPassword ? 'password' : 'text'"
+                                name="New_Password" formControlName="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                                [(ngModel)]="model.New_Password" #New_Password="ngModel" maxlength="20" minlength="8"
+                                [ngClass]="{ 'is-invalid': f.submitted && New_Password.invalid }" 
+                                required autocomplete="off" />
+                                <mat-icon style="cursor:pointer" matSuffix (click)="NewPassword = !NewPassword">{{NewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    
+                                <mat-error *ngIf="New_Password.invalid && ChangePassword.submitted && (New_Password.errors?.minlength || New_Password.errors?.pattern)">* 8 Characters one Uppercase, Lowercase, Special Characters, Number </mat-error>
+                                <mat-error *ngIf="New_Password.invalid && ChangePassword.submitted && New_Password.errors?.required"> New Password is required!</mat-error> -->
+                                <!-- <mat-error *ngIf="New_Password.invalid && ChangePassword.submitted && New_Password.errors?.minlength">Password should have </mat-error> -->
+                            </mat-form-field>
+                        <!-- </div> -->
+                        
+
+                        <!-- Confirm Password -->
+                        <!-- <div class="form-group"> -->
+                            <mat-form-field appearance="outline" class="col-lg-12">
+                                <mat-label>Confirm Password</mat-label>
+                                <input matInput placeholder="Confirm password" formControlName="confirmPassword" [errorStateMatcher]="matcher" required autocomplete="off">
+                              <mat-error *ngIf="myForm.hasError('notSame') || myForm.hasError('required' , 'confirmPassword')">PAssword do not match
+                              </mat-error>
+                                <!-- <input matInput placeholder="Old Password" autocomplete="off" [type]="ConfirmPassword ? 'password' : 'text'"
+                                name="Confirm_Password"
+                                [(ngModel)]="model.Confirm_Password" #Confirm_Password="ngModel" 
+                                [ngClass]="{ 'is-invalid': ChangePassword.submitted && Confirm_Password.invalid }" 
+                                required autocomplete="off"/>                            
+                                <mat-icon style="cursor:pointer" matSuffix (click)="ConfirmPassword = !ConfirmPassword">{{ConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                                <mat-error *ngIf="Confirm_Password.invalid && ChangePassword.submitted && Confirm_Password.errors?.required"> Confirm Password is required!</mat-error>
+                                <mat-error *ngIf="ChangePassword.submitted && NewPassword.value != Confirm_Password.value && !Confirm_Password.errors?.required">Password does not match password confirmation.</mat-error> -->
+                            </mat-form-field>
+                        <!-- </div> -->
+
+                            <!-- <mat-form-field>
+                                <input matInput type="password" placeholder="Password" formControlName="password" (input)="onPasswordInput()">
+                                <mat-error *ngIf="password.hasError('required')">Password is required</mat-error>
+                                <mat-error *ngIf="password.hasError('minlength')">Password must have at least {{minPw}} characters</mat-error>
+                            </mat-form-field>
+                        
+                            <mat-form-field>
+                                <input matInput type="password" placeholder="Confirm password" formControlName="password2" (input)="onPasswordInput()">
+                                <mat-error *ngIf="password2.hasError('required')">Please confirm your password</mat-error>
+                                <mat-error *ngIf="password2.invalid && !password2.hasError('required')">Passwords don't match</mat-error>
+                            </mat-form-field> -->
+
+                        <!-- Button Section -->
+                        <div class="text-center mt-2" style="margin-top: 0px;">
+                            <button type="submit" class="DashboardBtn" (click)="checkPasswords()" >Save Changes</button>
+                        </div>
+                    </form>
+                    <!-- Form Section End -->
+                    </div>
+
+                </div>
+                <div class="col-lg-12 mt-4">
+                    <h2 class="Dashboard_Heading mt-4">Notification Alerts</h2>
+                    
+                            <div class="Exchange_Notification"><div class="row">
+                                    <div class="col-lg-6">
+                                            <p>Security Alerts</p>
+                                            <ul>
+                                                <li>TFA
+                                                    <a class="pull-right">
+                                                        <mat-slide-toggle></mat-slide-toggle>
+                                                    </a>
+                                                </li>
+                                                <li>Login Email Alerts
+                                                    <a class="pull-right">
+                                                        <mat-slide-toggle></mat-slide-toggle>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                    </div>
+                                  <div class="col-lg-6">
+                                        <p>Manage Notification</p>
+                                        <ul>
+                                            <li>Change Password
+                                                <a class="pull-right">
+                                                    <mat-slide-toggle></mat-slide-toggle>
+                                                </a>
+                                            </li>
+                                            <li>Deposit Fund
+                                                <a class="pull-right">
+                                                    <mat-slide-toggle></mat-slide-toggle>
+                                                </a>
+                                            </li>
+                                            <li>SMS Notification
+                                                <a class="pull-right">
+                                                    <mat-slide-toggle></mat-slide-toggle>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                  </div>
+                                    <!-- <ui-switch checked></ui-switch> -->
+            
+                                    
+                                </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <h2 class="Dashboard_Heading mt-4">Add Bank Details</h2>
+                            <div class="BankDetails">
+                                <!-- <div class="row "> -->
+                                    <!-- <div class="col-lg-12"> -->
+                                        <form (ngSubmit)="BankDetails.form.valid" #BankDetails="ngForm" novalidate>
+                                        <div class="row">
+                                            <div class="col-lg-6 mt-2">
+                                                <mat-form-field appearance="outline" class="col-lg-12">
+                                                    <mat-label>Bank Name</mat-label>
+                                                    <input matInput placeholder="Bank Name" class="matInputt" 
+                                                    minlength="3" maxlength="50" pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$"
+                                                    [(ngModel)]="model.BankName" 
+                                                    name="BankName" 
+                                                    #BankName="ngModel"
+                                                    [ngClass]="{ 'is-invalid': BankDetails.submitted && BankName.invalid }"
+                                                    required autocomplete="off" 
+                                                    >
+                                                    <mat-error *ngIf="BankName.invalid && BankDetails.submitted && BankName.errors?.required">BankName is required</mat-error>
+                                                    <mat-error *ngIf="BankName.invalid && BankDetails.submitted && BankName.errors?.minlength">minimum 3 characters</mat-error>
+                                                    <mat-error *ngIf="BankName.invalid && BankDetails.submitted && BankName.errors?.pattern">Incorrect Bankname</mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <mat-form-field appearance="outline" class="col-lg-12">
+                                                    <mat-label>Account Holder Name</mat-label>
+                                                    <input matInput placeholder="Holder Name" class="matInputt"
+                                                    autocomplete="off" [(ngModel)]="model.HolderName" pattern="[a-zA-Z]+[a-zA-Z]$"
+                                                    name="HolderName" 
+                                                    #HolderName="ngModel"
+                                                    [ngClass]="{ 'is-invalid': BankDetails.submitted && HolderName.invalid }"
+                                                    required autocomplete="off" 
+                                                    >
+                                                    <mat-error *ngIf="HolderName.invalid && BankDetails.submitted && HolderName.errors?.required">HolderName is required</mat-error>
+                                                    <mat-error *ngIf="HolderName.invalid && BankDetails.submitted && HolderName.errors?.minlength">minimum 3 characters</mat-error>
+                                                    <mat-error *ngIf="HolderName.invalid && BankDetails.submitted && HolderName.errors?.pattern">Characters only</mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <mat-form-field appearance="outline" class="col-lg-12">
+                                                    <mat-label>Account Number</mat-label>
+                                                    <input matInput placeholder="Account Number" class="matInputt" 
+                                                    autocomplete="off" [(ngModel)]="model.AccountNumber" pattern="[0-9]{0,20}"
+                                                    name="AccountNumber" 
+                                                    #AccountNumber="ngModel"
+                                                    [ngClass]="{ 'is-invalid': BankDetails.submitted && AccountNumber.invalid }"
+                                                    required autocomplete="off" 
+                                                    >
+                                                    <mat-error *ngIf="AccountNumber.invalid && BankDetails.submitted && AccountNumber.errors?.required">Account No. is required</mat-error>
+                                                    <mat-error *ngIf="AccountNumber.invalid && BankDetails.submitted && AccountNumber.errors?.minlength">minimum 3 characters</mat-error>
+                                                    <mat-error *ngIf="AccountNumber.invalid && BankDetails.submitted && AccountNumber.errors?.pattern">Invalid Account No. </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <mat-form-field appearance="outline" class="col-lg-12">
+                                                    <mat-label>IBNA/SWIFT Code</mat-label>
+                                                    <input matInput placeholder="Code" class="matInputt"
+                                                    autocomplete="off" [(ngModel)]="model.Code" 
+                                                    name="Code" 
+                                                    #Code="ngModel"
+                                                    [ngClass]="{ 'is-invalid': BankDetails.submitted && Code.invalid }"
+                                                    required autocomplete="off" 
+                                                    >
+                                                    <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.required">Code is required</mat-error>
+                                                    <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                                    <!-- <mat-error *ngIf="BankName.invalid && BankDetails.submitted && BankName.errors?.maxlength">BankName should have maximum 20 characters</mat-error> -->
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <mat-form-field appearance="outline" class="col-lg-12">
+                                                    <mat-label>Branch/City</mat-label>
+                                                    <input matInput placeholder="Branch/City" class="matInputt"
+                                                    autocomplete="off" [(ngModel)]="model.BranchName" pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$"
+                                                    name="BranchName" 
+                                                    #BranchName="ngModel"
+                                                    [ngClass]="{ 'is-invalid': BankDetails.submitted && BranchName.invalid }"
+                                                    required autocomplete="off" 
+                                                    >
+                                                    <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.required">BranchName is required</mat-error>
+                                                    <!-- <mat-error *ngIf="Code.invalid && BankDetails.submitted && Code.errors?.minlength">minimum 3 characters</mat-error> -->
+                                                    <mat-error *ngIf="BranchName.invalid && BankDetails.submitted && BranchName.errors?.pattern">BranchName Incorrect</mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <mat-form-field appearance="outline" class="col-lg-12">
+                                                    <mat-label>Select Your Country</mat-label>
+                                                    <mat-select required matInput #Bank_Country="ngModel"
+                                                        name="Bank_Country" [(ngModel)]="BankDetails.Bank_Country">
+                                                        <mat-option>None</mat-option>
+                                                        <mat-option value="option1">India</mat-option>
+                                                        <mat-option value="option2">Australia</mat-option>
+                                                        <mat-option value="option3">Asia</mat-option>
+                                                    </mat-select>
+                                                    <mat-error *ngIf="Bank_Country.errors && (Bank_Country.dirty || Bank_Country.touched || submitted)">
+                                                        <span [hidden]="!Bank_Country.errors.required" class="error"
+                                                        translate>Please select option </span>
+                                                        </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                    <div class="text-center">
+                                                        <button class="DashboardBtn">Update</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- </div> -->
+                                <!-- </div> -->
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <h2 class="Dashboard_Heading mt-4">Bank Details</h2>
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-lg-12" style="    height: 330px;">
+
+                                <!--- Note that these columns can be defined in any order.
+                                          The actual rendered columns are set as a property on the row definition" -->
+
+                                <!-- Position Column -->
+                                <ng-container matColumnDef="position">
+                                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                                </ng-container>
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef> Bank Name </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="weight">
+                                    <th mat-header-cell *matHeaderCellDef> Account Number </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="symbol">
+                                    <th mat-header-cell *matHeaderCellDef> IFSC Code </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="View">
+                                    <th mat-header-cell *matHeaderCellDef> View </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-icon>{{element.View}}</mat-icon>
+                                    </td>
+                                </ng-container>
+
+
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="Delete">
+                                    <th mat-header-cell *matHeaderCellDef> Delete </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-icon>{{element.Delete}}</mat-icon>
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+
+
+                        </div>
+                        <div class="col-lg-12 ">
+                            <div class="KYCDESC">
+                            <h5>Please make sure below :</h5>
+                            <ul style="list-style-type :circle; padding-left:15px;">
+                                <li>ID Proof like Driving Licence, Residence, Passport </li>
+                                <li>ID Must not be Expired</li>
+                                <li>Doucment should be clear and visiable</li>
+                                <li>Goverment approved ID only Accpeted</li>
+                                <li>Upload both Front & Back side of ID Proof</li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-lg-6 mt-4 mb-4 ">
+                            <div class="KYCDESC">
+                                <div>
+                                    <p class="pull-left">Your Selfie</p>
+                                    <p class="pull-right" style="color: red">Pending</p>
+                                </div>
+                                <div class="text-center UploadImg">
+                                    <img src="assets/images/1200px-Add_user_icon_(blue).png" class="" alt="app-dashboard-header">
+                                    <p class="KYC_Desc">Your Selfie will help us to make sure that we delivery to the right Person</p>
+                                    <button class="KYC_Upload">Upload</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mt-4 mb-4">
+                            <div class="KYCDESC">
+                                <div>
+                                    <p class="pull-left">Your Selfie</p>
+                                    <p class="pull-right" style="color: red">Pending</p>
+                                </div>
+                                <div class="text-center UploadImg">
+                                    <img src="assets/images/file.png" alt="app-dashboard-header">
+                                    <img src="assets/images/file.png" alt="app-dashboard-header" style="margin-left:5px;">
+                                    <p class="KYC_Desc1">Your Selfie will help us to make sure that we delivery to the right Person</p>
+                                    <button class="KYC_Upload">Upload</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!-- </div>
+    </div>
+</div> -->
+

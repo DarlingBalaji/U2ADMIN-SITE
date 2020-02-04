@@ -1,0 +1,148 @@
+.shakeit:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+  
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+  }
+
+  ::ng-deep .mat-select-panel {
+    background: #0E1F70;
+    color: #ffffff; 
+}
+::ng-deep .mat-option:hover:not(.mat-option-disabled) {
+    background-color: #E72B90;
+}
+::ng-deep .mat-option-text {
+    color: #ffffff;
+}
+::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0 0px 15px 0px #428abc;
+}
+
+
+  .Model_Btn{
+    background-color: #E72B90;
+    border:1px solid #E72B90;
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    padding: 8px 15px;
+    font-weight: bolder;
+    color: #ffffff;
+    font-size: 14px;
+    &:hover{
+        border: 1px solid #E72B90;
+        background-color: #ffffff;
+        color: #E72B90; 
+        transition-duration: 0.3s;
+        transition-delay: 0.1s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.7s;
+        -moz-transition-timing-function: ease-in; 
+        -webkit-transition-timing-function: ease-in;
+        -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+        -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+    }
+  }
+
+  .Model_Title{
+      color: #333333;
+      font-size: 18px;
+      font-weight: 700;
+  }
+
+  .Model_Address{
+      color: #E72B90;
+      font-size: 14px;
+  }
+
+
+//   Material CSS
+tr.mat-header-row{
+    background-color: #0E1F70;
+}
+th.mat-header-cell{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center
+}
+.mat-elevation-z8:hover {
+    box-shadow: 0 0px 15px 0px #E72B90;
+}
+.mat-elevation-z8 {
+    box-shadow: 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc;
+    background-color: transparent;
+}
+tr{
+    text-align: center;
+    background-color: transparent;
+}
+
+::ng-deep tr.mat-row:hover td {
+    color: #ffffff;
+    background-color: #428abc;
+}
+::ng-deep tr.mat-row td {
+    color: white;
+    border-bottom: 1px solid #428abc;
+}
+
+
+  @media only screen and (max-width: 600px) {
+    .Dashboard-UserDetails{
+    height: auto;
+    }
+    .Exchange_Input{
+        border: 1px solid white;
+        width: 50px;
+         margin-top: 0px;
+        border-bottom: 1px solid black;
+    }
+  }
+
+  @media only screen and (max-width: 460px) {
+    .Dashboard_Item1 {
+        display: grid;
+        // margin: -48px 60px;
+    }
+   .Dashboard_Item2 {
+        display: grid;
+        text-align: right;
+        margin: -42px 0px;
+    }
+  
+    .Transaction_HIstory {
+        display: grid;margin: 0px;
+    }
+    .responsivecss{
+        margin: 4px 20px;
+    }
+
+  }
+
+  .Balance_Table{
+      width: 90%;
+      color: #E72B90;
+      text-align: center;
+      font-size: 16px;
+    //   font-weight: 700;
+  }

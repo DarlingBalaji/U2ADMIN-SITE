@@ -1,0 +1,281 @@
+<div class="BackGroundIMG">
+  <app-header></app-header>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <h1 class="BannerHeader">Easy Way to Trade Your Crypto</h1>
+        <p class="BannerDesc">Exchange any currency to have your Crypto</p>
+        <button routerLink='/Signup' class="BannerBtn">Get Started</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Market Value Section -->
+
+<section style="margin-top: -250px;margin-bottom: 200px;">
+  <div class="container">
+    <div class="row">
+        <!-- <div  class="col-lg-12 mt-4 mb-4">
+            <h2  class="Dashboard_Heading mt-4">Market Price</h2>
+        </div> -->
+      <div class="col-lg-3">
+        <div class="Dashboard_MarketPrice_List">
+            <p  class="pull-right" style="color:green"><i  aria-hidden="true" class="fa fa-caret-up"></i> 0.84%</p><br >
+            <h5  class="Dashboard_Market_Price_Heading">Bitcoin</h5><span  class="Dashboard_Market_Price_Desc">BTC</span><br >
+            <div  class=""><span  class="Dashboard_Market_Price_Desc">$ 23.565</span><span  class="Dashboard_Market_Price_Desc pull-right">1.00</span></div>
+        </div>
+      </div>  
+      <div class="col-lg-3">
+        <div class="Dashboard_MarketPrice_List">
+            <p  class="pull-right" style="color:green"><i  aria-hidden="true" class="fa fa-caret-up"></i> 0.84%</p><br >
+            <h5  class="Dashboard_Market_Price_Heading">Bitcoin</h5><span  class="Dashboard_Market_Price_Desc">BTC</span><br >
+            <div  class=""><span  class="Dashboard_Market_Price_Desc">$ 23.565</span><span  class="Dashboard_Market_Price_Desc pull-right">1.00</span></div>
+        </div>
+      </div> 
+      <div class="col-lg-3">
+        <div class="Dashboard_MarketPrice_List">
+            <p  class="pull-right" style="color:green"><i  aria-hidden="true" class="fa fa-caret-up"></i> 0.84%</p><br >
+            <h5  class="Dashboard_Market_Price_Heading">Bitcoin</h5><span  class="Dashboard_Market_Price_Desc">BTC</span><br >
+            <div  class=""><span  class="Dashboard_Market_Price_Desc">$ 23.565</span><span  class="Dashboard_Market_Price_Desc pull-right">1.00</span></div>
+        </div>
+      </div> 
+      <div class="col-lg-3">
+        <div class="Dashboard_MarketPrice_List">
+            <p  class="pull-right" style="color:green"><i  aria-hidden="true" class="fa fa-caret-up"></i> 0.84%</p><br >
+            <h5  class="Dashboard_Market_Price_Heading">Bitcoin</h5><span  class="Dashboard_Market_Price_Desc">BTC</span><br >
+            <div  class=""><span  class="Dashboard_Market_Price_Desc">$ 23.565</span><span  class="Dashboard_Market_Price_Desc pull-right">1.00</span></div>
+        </div>
+      </div>   
+    </div>
+  </div>
+</section>
+
+
+<div class="BodyBackGround">
+<!-- Buy & Sell Coin Quick  -->
+<section fxHide fxShow.gt-sm>
+  <div class="container mt-4 margin-top-bottom">
+    <div class="row">
+      <div class="col-lg-12 text-center margin-bottom">
+          <h2 class="HomepageHeading">Buy & Sell Coin Quick</h2>
+          <p class="HomepageHeading-Desc">Buy and Sell Coin Quickly with our new futures</p>
+      </div>
+    </div>
+    <div class="row Buy-SellSection">
+      <div class="col-lg-5 text-center">
+          <p class="text-center">Buy</p>
+        <div class="text-center" style="display: inline-flex;" class="col-lg-12">
+          <img src="assets/images/Bitcoin.png" alt="">
+          <div style="margin-left: 40px;margin-top:10px;font-size: 14px;font-weight: 600;">
+              <button class="Buy_SellBtn"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ SelectedOption }}
+                  <i class="fa fa-angle-down Buy-SellArrowIcon pull-right"  aria-hidden="true"
+                  style="font-size: 24px;"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor= "let Currencys of Currency">
+                    <a class="dropdown-item" (click)="Change1( Currencys.name )">{{ Currencys.name }}</a>
+                </div>
+          </div>
+      </div>
+      <form class="example-form text-center">
+        <mat-form-field class="example-full-width" class="col-lg-12">
+          <input matInput placeholder="" value="37.45"  [(ngModel)]="demo"  [ngModelOptions]="{standalone:
+            true}">
+        </mat-form-field>
+      </form>
+    </div>
+      <div class="col-lg-2 Buy-SellCoin-MiddleSection text-center" >
+        <p style="margin-top:44px;">1BTC = $24.00</p>
+        <img class="Transfer-Img" (click)="ChangeInverse(demo, demo1)" src="assets/images/transfer (2).png" alt="">
+      </div>
+      <div class="col-lg-5 text-center">
+          <p class="text-center">Rate</p>
+          <div style="display: inline-flex;" class="col-lg-12">
+            <img src="assets/images/Dollor.png" alt="">
+            <div style="margin-left: 40px;margin-top:10px;font-size: 14px;font-weight: 600;">
+                <button class="Buy_SellBtn"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ selectedOption1 }}
+                  <i class="fa fa-angle-down Buy-SellArrowIcon pull-right" aria-hidden="true"
+                  style="font-size: 24px;"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor= "let Currencys of Currency">
+                    <a class="dropdown-item" (click)="Change( Currencys.name )">{{ Currencys.name }}</a>
+                </div>
+              </div>
+        </div>
+        <form class="example-form">
+            <mat-form-field class="example-full-width" class="col-lg-12">
+              <input matInput placeholder="" value="37.4"  [(ngModel)]="demo1"  [ngModelOptions]="{standalone:
+                true}">
+            </mat-form-field>
+            </form>
+      </div>
+    </div>
+  </div>
+</section>
+<section fxShow fxHide.gt-sm>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- <div class="col-lg-4 "> -->
+            <h2 class="HomepageHeading text-center">Exchange</h2>
+          <!-- <h2 class="Dashboard_Heading mt-4 mb-4">Exchange</h2> -->
+          <div class="Exchange_Section">
+            <h4 class="Exchange_heading text-center">You Have</h4>
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <input type="text" class="Exchange_Input" value="4456">
+                  </div>
+                  <div class="col-lg-6 text-center">
+                    <mat-form-field>
+                        <mat-label>Currency</mat-label>
+                        <mat-select [(value)]="selected"  panelClass="my-panel" >
+                          <mat-option>NONE</mat-option>
+                          <mat-option value="option1">ETH</mat-option>
+                          <mat-option value="option2">LIT</mat-option>
+                          <mat-option value="option3">ERK</mat-option>
+                          <mat-option value="option3">BTC</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      
+                    </div>
+                    <div class="text-center col-lg-12">
+                        <!-- <img src="assets/images/transfer(3).png" alt="" style="    background-color: lightgray;
+                        border-radius: 55%;
+                        height: 18px;
+                        padding: 5px;
+                        margin-top: 6px;"> -->
+                        <mat-icon class="SWAP_Change">swap_horizontal_circle</mat-icon>
+                        <hr class="line">
+                      </div>
+                      <div class="col-lg-12">
+                          <h4 class="Exchange_heading text-center mt-4">You Get</h4>
+                      </div>
+                      
+                      <div class="col-lg-6 text-center">
+                          <input type="text" class="Exchange_Input" value="4456">
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <mat-form-field>
+                                <mat-label>Currency</mat-label>
+                                <mat-select [(value)]="selected"  panelClass="my-panel" >
+                                  <mat-option>NONE</mat-option>
+                                  <mat-option value="option1">ETH</mat-option>
+                                  <mat-option value="option2">LIT</mat-option>
+                                  <mat-option value="option3">ERK</mat-option>
+                                  <mat-option value="option3">BTC</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                          </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="ExchangeBtn">Exchange</button>
+            </div>
+          </div>
+ 
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CryptoCurrency Exchange -->
+<section>
+  <div class="container mt-4 margin-top-bottom">
+    <div class="row">
+      <div class="col-lg-12 text-center margin-bottom">
+          <h2 class="HomepageHeading">Investing In Cryptocurrency Exchange</h2>
+          <p class="HomepageHeading-Desc">What we do for the Cryptocurrency Exchange</p>
+      </div>
+      <div class="col-lg-3 text-center">
+        <img src="assets/images/CryptoExchange2.png" alt="">
+        <div class="CryptoExchange-Title">Its Better Way To Move Money</div>
+        <div class="CryptoExchange-Desc">What we do for the Cryptocurrency Exchange</div>
+      </div>
+      <div class="col-lg-3 text-center">
+          <img src="assets/images/CryptoExchange3.png" alt="">
+        <div class="CryptoExchange-Title">Its True Finacial Freedom</div>
+        <div class="CryptoExchange-Desc">What we do for the Cryptocurrency Exchange</div>
+      </div>
+      <div class="col-lg-3 text-center">
+          <img src="assets/images/CryptoExchange4.png" alt="">
+        <div class="CryptoExchange-Title">Its New Type of Inversment</div>
+        <div class="CryptoExchange-Desc">What we do for the Cryptocurrency Exchange</div>
+        </div>
+      <div class="col-lg-3 text-center">
+          <img src="assets/images/CryptoExchange1.png" alt="">
+        <div class="CryptoExchange-Title">Available in Over a Country</div>
+        <div class="CryptoExchange-Desc">What we do for the Cryptocurrency Exchange</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Latest News  -->
+<section>
+  <div class="container mt-4 margin-top-bottom">
+    <div class="row">
+      <div class="col-lg-12 text-center margin-bottom">
+          <h2 class="HomepageHeading"> Latest News</h2>
+          <p class="HomepageHeading-Desc">Latest News about the crypto world and U2ADMIN</p>
+      </div>
+      <div class="col-lg-4">
+        <div class="LatestNewsSection">
+            <div class="">
+                <img class="LatestNewsSection-Image" src="assets/images/LatestNewsImage3.jpeg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                  <h4 class="LatestNewsSection-Header">Are Argentinians paying for Uber rides with bitcoins?</h4>
+                  <p class="LatestNewsSection-Desc">Bitcoin is not being used to pay for Uber in Argentina, and any such news should be</p>
+                  <a routerLink='/News' target="_blank" class="LatestNewsSection-ReadMore">Read More</a>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+          <div class="LatestNewsSection">
+              <div class="">
+                  <img class="LatestNewsSection-Image" src="assets/images/LatestNewsImage2.jpeg" alt="Card image" style="width:100%">
+                  <div class="card-body">
+                    <h4 class="LatestNewsSection-Header">Bitcoin to banknotes</h4>
+                    <p class="LatestNewsSection-Desc">The cryptocurrency is going tangible: 10,000 notes have been manufactured and</p>
+                    <a routerLink='/News' target="_blank" class="LatestNewsSection-ReadMore">Read More</a>
+                  </div>
+                </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="LatestNewsSection">
+                <div class="">
+                    <img class="LatestNewsSection-Image" src="assets/images/LatestNewsImage1.jpeg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                      <h4 class="LatestNewsSection-Header">BoE: Bitcoin not a currency</h4>
+                      <p class="LatestNewsSection-Desc">Mark Carney, the Governor of the Bank of England, blatantly stated that bitcoin has</p>
+                      <a routerLink='/News' target="_blank" class="LatestNewsSection-ReadMore">Read More</a>
+                    </div>
+                  </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<!-- News Letters Section -->
+<section>
+  <div class="container mt-4 margin-top-bottom">
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <h2 class="HomepageHeading">News Letters</h2>
+        <p class="HomepageHeading-Desc margin-bottom">If you want to get latest new or infomation about crypto touch with us </p>
+        <form class="NewLetterForm mt-4">
+            <input type="text" class="NewLetteInput" placeholder="Enter your E-mail_ID">
+            <button class="btn NewLetterButton">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<section class="FooterBackGroungColor mt-4">
+  <app-footer></app-footer>
+</section>

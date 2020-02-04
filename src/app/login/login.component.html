@@ -1,0 +1,72 @@
+<section class="FooterBackGroungColor1 BackGroundIMG1">
+  <app-header></app-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 m-auto col-md-8 col-12 text-center">
+        <div class="FormsCSS">
+          <h4 class="Title_Login">LOGIN</h4>
+          <p class="Desc_Login">Create a Account <a routerLink='/Signup' class="SignUp_HyperLink">Signin</a></p>
+          <div style="display: inline-flex">
+            <div style="border: 1px solid lightgray;
+            padding: 3px;
+            border-radius: 20px;
+            width: 32%;
+            margin-left: 47px;cursor: pointer;">
+              <a href="https://www.google.co.in/"><img src="assets/images/icons8-google-160.png" width="15%" alt=""><span style="margin-left:5px;">Google</span></a>
+            </div>
+            <div style="    border: 1px solid lightgray;
+            padding: 3px;
+            border-radius: 20px;
+            width: 32%;
+            margin-left: 60px;">
+              <a href="https://www.facebook.com/"><img src="assets/images/icons8-facebook-f-150.png" width="15%" alt=""><span style="margin-left:5px;">Facebook</span></a>
+            </div>
+          </div>
+
+          <!-- Form Section Start -->
+          <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <!-- E-Mail ID -->
+            <input placeholder="E-mail ID" class="InputField_Login"
+            [(ngModel)]="model.email" name="email"
+            #email="ngModel" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,63}"
+            [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" 
+            required autocomplete="off">
+
+            <div class="err">
+                <mat-error *ngIf="email.invalid && f.submitted && email.errors.required">
+                  E-mail_ID Required
+                </mat-error>
+                <mat-error *ngIf="email.invalid && f.submitted && email.errors.pattern">
+                 Invalid Mail ID
+                </mat-error>
+              </div>
+
+            <!-- Password -->
+            <input placeholder="Password" class="InputField_Login"
+                   type="password"
+                  [(ngModel)]="model.pass" name="pass" 
+                  #pass="ngModel" 
+                  [ngClass]="{ 'is-invalid': f.submitted && pass.invalid }" 
+                  required autocomplete="off">
+
+                  <div class="err">
+                      <mat-error *ngIf="pass.invalid && f.submitted && pass.errors.required">
+                       Incorrect Password
+                      </mat-error>
+                    </div>
+                   
+                    
+            <a routerLink='/ForgetPassword' fxLayoutAlign="start" class="ForgetHyperLink">ForgetPassword</a>
+            <div fxLayoutAlign="center center" class="ReCaptcha">
+              <re-captcha (resolved)="resolved($event)" siteKey="6LdwMMgUAAAAAGteaHHXv3OTn8I9nYXO-USZVdbk"></re-captcha>	
+            </div>
+        
+              <button class="Submin_Btn" type="submit" *ngIf="!submitted">Submit</button>
+
+          </form>
+          <!-- form Section End -->
+        </div>
+      </div> 
+    </div>
+  </div>
+</section>

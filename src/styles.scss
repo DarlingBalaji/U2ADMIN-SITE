@@ -1,0 +1,1554 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+// @import '~ngx-toastr/toastr-bs4-alert';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~ngx-ui-switch/ui-switch.component.scss';
+@import '~ngx-toastr/toastr';
+
+
+body {
+    font-family: 'Ubuntu', sans-serif!important;
+}
+.BackGroundIMG{
+    background-image: url("/assets/images/banner.png");
+    background-size: cover;    
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 695px;
+}
+.BackGroundIMGS{
+    background-image: url("/assets/images/banner.png");
+    background-size: cover;    
+    background-position: center;
+    width: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    // height: 1505px;
+}
+.BackGroundIMG1{
+    background-image: url("/assets/images/banner.png");
+    background-size: cover;    
+    // width: 100%;
+    background-repeat: no-repeat;
+    height: 630px;
+}
+.BodyBackGround{
+    background-image: url("assets/images/BackGroundImg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+// NAVBAR SECTION
+// nav .navpadding{
+//     padding: 28px;
+// }
+.nav-item{
+    padding-left: 30px;
+}
+nav{
+    padding: 20px 40px;
+}
+.nav-item a{
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 14px;
+}
+.navbar-brand{
+    padding-left: 20px;
+}
+.nav-item a:hover{
+    color: #E72B90;
+}
+.nav-item a:focus,
+.nav-item a:active{
+    color: #E72B90;
+}
+.nav-item .navBtn{
+    background-color: #E72B90;
+    color: #ffffff;
+    font-weight: 400;
+    // margin-top: 5px;
+    border-radius: 10px;
+
+}
+.nav-item .navBtn:hover{
+    color: #E72B90;
+    background-color: #ffffff;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.7s;
+    -moz-transition-timing-function: ease-in; 
+    -webkit-transition-timing-function: ease-in;
+    -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+    -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+}
+.nav_UserDetails{
+    display: inline-flex;padding-top: 15px;
+}
+.nav_UserDetails img{
+    height: 55px;
+    margin-top: 5px;
+}
+.nav_UserName{
+    display: grid;
+    color: #ffffff;
+    margin: 10px;
+    cursor: pointer;
+}
+.sidenav_Items{
+    display: inline-flex;
+    display: -webkit-inline-box;
+    padding: 10px;
+    font-size: 14px;
+    height: 50px;
+}
+.Sidenav{
+    display: grid;width: 116%;
+}
+.sidenav_Desc{
+    margin-left: 5px;cursor: pointer;font-weight: 600;
+}
+.sidenav_Items:hover{
+    background-color: #E72B90;
+    color: #ffffff;
+}
+// Banner Section
+.BannerHeader{
+    color: #FFFFFFFF;
+    margin-top: 100px;
+}
+.BannerDesc{
+    color: #ffffff;
+    margin-top: 15px;
+}
+.BannerBtn{
+    background-color: #E72B90;
+    border-color: #E72B90;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+    padding: 8px 15px;
+    font-weight: bolder;
+    color: #ffffff;
+    font-size: 14px;
+}
+.BannerBtn:hover{
+    border: 1px solid #E72B90;
+    background-color: #ffffff;
+    color: #E72B90; 
+    transition-duration: 0.3s;
+    transition-delay: 0.1s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.7s;
+    -moz-transition-timing-function: ease-in; 
+    -webkit-transition-timing-function: ease-in;
+    -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+    -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+}
+
+
+// Footer Section
+.FooterBackGroungColor{
+    background-color: #020748;
+    padding: 30px;
+}
+.FooterSection{
+    // position: fixed;z-index: 1000;
+
+}
+.FooterBackGroungColor1{
+    background-color: #020748;
+    // padding: 30px;
+}
+// .FooterSection{
+//     padding: 20px;
+// }
+.FoterDesc{
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+    padding-right: 30px;
+}
+.FooterLinkHeading{
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.FooterLinkItem{
+    list-style-type: none;
+    padding-left: 0px;
+}
+.FooterLinkItem .FoterLink{
+    color: #ffffff;outline: none;cursor: pointer;
+    &:hover{
+        color: #E72B90
+    }
+}
+.FooterLinkItem span::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #E72B90;
+    transition: width .5s;
+    
+}
+.FooterLinkItem span:hover::after{
+    // color: #ffffff;
+    cursor: pointer;
+    width: 100%;
+    // transition: transformY(10px);
+}
+.FooterContactUsList{
+    list-style-type: none;
+    padding-left: 0px;
+}
+.FooterContactUsItem{
+    color: #ffffff;
+    font-size: 14px;
+    margin: 5px 0px;
+    font-weight: 500;
+}
+.FooterContactUsDetails{
+    margin-left: 10px;display: inline-flex;
+}
+.FoterHrLine{
+    width: 100%;
+    border: .5px solid #ffffff; 
+    margin-top: 10px;
+}
+.FoterSocialItem{
+    color: #E72B90;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 7px 10px;
+    font-size: 18px;
+    margin-left: 5px;
+    &:hover{
+    background-color: transparent;
+    color: #ffffff;
+    transition-duration: .5s;
+    }
+    &:hover i{
+        // transform: translateY(-10px);
+        transition-duration: .5s;
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        // transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+        @keyframes shake {
+            10%, 90% {
+                transform: translate3d(0, -1px, 0);
+            }
+          
+            20%, 80% {
+                transform: translate3d(0, 2px, 0);
+            }
+          
+            30%, 50%, 70% {
+                transform: translate3d(0, -4px, 0);
+            }
+          
+            40%, 60% {
+                transform: translate3d(0 ,4px, 0);
+            }
+        }
+    }
+}
+
+.copyright{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+//*********************HomePage Section*********************//
+// Common CSS
+.HomepageHeading{
+    color: #071751;
+}
+.HomepageHeading-Desc{
+    color: #7C7C7C;
+    font-size: 24px;
+}
+.margin-bottom{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.margin-top-bottom{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+//MarketTableSection
+.MarketTableSection{
+    margin-top: -250px;
+    padding: 10px 80px;
+} 
+.MarketPriceButton{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+    padding: 8px 15px;
+    font-weight: bolder;
+    margin-top: 30px;
+    color: #ffffff;
+    font-size: 14px;
+    &:hover{
+        border: 1px solid #E72B90;
+        background-color: #ffffff;
+        color: #E72B90; 
+        transition-duration: 0.3s;
+        transition-delay: 0.1s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.7s;
+        -moz-transition-timing-function: ease-in; 
+        -webkit-transition-timing-function: ease-in;
+        -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+        -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+    }
+}
+// BUY & SELL COIN QUICK
+.Buy-SellArrowIcon{
+    margin-left: 200px;
+    font-weight: 600;
+}
+.Buy_SellBtn{
+    background-color: transparent;
+    border: 1px solid #ffff;
+    outline: none;
+    margin-left: -36px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.Transfer-Img{
+    background-color: #F2F2F2;
+    border-radius: 50%;
+    padding: 10px;
+}
+.Buy-SellCoin-MiddleSection{
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    // margin-top: 50px;
+    // padding: 20px 0px;
+}
+.Buy-SellSection{
+    padding: 20px 0px;
+    box-shadow: 0px 0px 47px 0px lightgrey;
+    // background-image: url("/assets/images/Layer7.png") cover no-repeat;
+    // background-size: ;    
+    // background-repeat: no-repeat;
+    height: 226px;
+    // border: 1px solid;
+    border-radius: 10px;
+    // margin: 15px 0px;
+}
+
+
+
+// CryptoExchange Section
+.CryptoExchange-Title{
+    color: #071751;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 0px 55px;
+    text-align: center;
+}
+.CryptoExchange-Desc{
+    font-size: 14px;
+    color: #333333;
+    margin-top: 10px;
+    text-align: center;
+}
+
+// News Letter
+.NewLetteInput{
+    background-color: #ffffff;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 40px;
+    outline: none;
+    font-size: 18px;
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0px 0px 1px 1px lightgray;
+}
+.btn.NewLetterButton{
+    background-color: #E72B90;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-left: 5px;
+    width:  150px;
+    
+    &:hover{
+        background-color: transparent;
+        border: 2px solid #E72B90;
+        color: #E72B90;
+        transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.7s;
+        -moz-transition-timing-function: ease-in; 
+        -webkit-transition-timing-function: ease-in;
+        -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+        -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+    }
+}
+.NewLetterForm{
+    margin: 24px 0px; 
+    height: 45px;
+}
+
+// LatestNewsSection 
+.LatestNewsSection-Image{
+    height: 250px;
+    border-radius: 10px 10px 0px 0px;
+}
+.LatestNewsSection{
+    height: 430px;
+    // box-shadow: 0px 0px 5px 5px lightgray;
+    border-radius: 10px;
+    margin-top: 25px;
+    &:hover{
+        box-shadow: 0px 0px 47px 0px lightgray;
+    }
+}
+.LatestNewsSection-Header{
+    font-size: 22px;
+    font-weight: 600;
+    color: #333333;
+    height: 50px;
+}
+.LatestNewsSection-Desc{
+    font-size: 16px;
+    color: #333333;
+}
+.LatestNewsSection-ReadMore{
+    color: #E72B90;
+    font-size: smaller;
+    font-weight: 500;
+    text-align: left;
+}
+
+// ***************Dashboard**************//
+
+// Dashboard-UserDetails
+.Dashboard-UserDetails{
+    background-color:transparent;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc;
+    width: 100%;
+    border-radius: 10px;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    // margin-top: 26px;
+    // box-shadow: 0px 0px 15px 0px lightgrey;
+    height: 56px;
+}
+.Dashboard-UserDetails-List{
+    font-size: 13px;
+    display: -webkit-inline-box;
+    // /* display: inline-flex; */
+    margin-top: 10px;
+}
+.Scan_Code{
+    margin-top: 8px;
+    color: #428abc;
+}
+.Dashboard-UserDetails-List1{
+    font-size: 13px;display: inline-flex;margin-top: 2px;
+}
+.Dashboard_UserDetails-Status{
+    margin-left:10px;
+    color: #07f224;
+}
+.Dashboard_UserDetails-Ac-Number,
+.Dashboard_UserDetails-Date{
+    margin-left: 10px;
+}
+.DashboardBtn{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    color: #ffffff;
+    width: 50%;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 29px;
+    border-radius: 10px;
+        &:hover {
+            background-color: #ffffff;
+            border: 1px solid #E72B90;
+            color: #E72B90;
+            transition-duration: 0.8s;
+            -moz-transition-duration: 0.5s;
+            -webkit-transition-duration: 0.7s;
+            -moz-transition-timing-function: ease-in; 
+            -webkit-transition-timing-function: ease-in;
+            -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+            -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+        }
+}
+
+.DashboardBtnSEND_RECEIVE{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    color: #ffffff;
+    // width: 50%;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 29px;
+    border-radius: 10px;
+        &:hover {
+            background-color: #ffffff;
+            border: 1px solid #E72B90;
+            color: #E72B90;
+            transition-duration: 0.8s;
+            -moz-transition-duration: 0.5s;
+            -webkit-transition-duration: 0.7s;
+            -moz-transition-timing-function: ease-in; 
+            -webkit-transition-timing-function: ease-in;
+            -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+            -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+        }
+}
+.UserIMG{
+
+}
+
+.UserName{
+    padding-left: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    // font-weight: 700;
+}
+.UserDetails{
+    background-color: transparent;
+    border-radius: 1px solid;
+    border-color: transparent;
+}
+//  Acccount Balance
+.Account_Balance{
+    background-color: #ffffff;
+    padding: 10px;
+    height: auto;
+}
+.Account_Balance_Heading{
+    background-color: #020748;
+    font-size: 18px;
+    padding: 10px 5px;
+    height: 45px;
+    font-weight: bold;
+    color: #E72B90;
+}
+.IDProof{
+    padding-left: 0px;
+    list-style-type: none;
+}
+.Dashboard_ID_Verfication{
+    color: #020748;
+    background-color: #ffffff;
+}
+// Dashboard Market Price
+.Dashboard_MarketPrice_Section{
+    // padding: 10px;
+    background-color: #ffffff;
+    margin: 10px 0px;
+    // width: 100%;
+}
+// .Dashboard_MarketPrice_List{
+//     padding: 20px;
+//     margin: 10px 0px;
+// }
+// .Dashboard_MarketPrice_List:not(:last-child){
+//     border-right: 1px solid lightgray;
+    
+// }
+.Balance_Details{
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+}
+.Table_Heading{
+    color: #428abc;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.Dashboard_MarketPrice_List{
+    padding: 10px;
+    background-color:transparent;
+    box-shadow: 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc;
+    border-radius: 10px;
+    &:hover{
+        margin-top: -10px;
+        transition-duration: 0.5s;
+        box-shadow: 0px 0px 10px 0px #E72B90, 0px 0px 10px 0px #E72B90, 0px 0px 10px 0px #E72B90, 0px 0px 10px 0px #E72B90;
+    }
+}
+.Dashboard_Heading{
+    font-size: 18px;
+    color: #ffffff;
+}
+.KYCVerification_Dashboard{
+    color: #ffffff;
+    font-size: 16px;
+    padding-left: 0px;
+    display: grid;
+    padding: 20px;
+    list-style-type: none;
+    // displayid;
+}
+.BuyCoin_Heading{
+    font-size: 24px;
+    font-weight: 500;
+    color: #E72B90;
+    // margin-left: 15px;
+
+}
+.BuyCoin_Table_Heading{
+    font-size: 22px;
+    font-weight: 700;
+    color: #E72B90;
+    margin-left: 15px;
+
+}
+.BUY_SELL_ViewMore{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 38px;
+    border-radius: 10px;
+        &:hover {
+            background-color: #ffffff;
+            border: 1px solid #E72B90;
+            color: #E72B90;
+            transition-duration: 0.8s;
+            -moz-transition-duration: 0.5s;
+            -webkit-transition-duration: 0.7s;
+            -moz-transition-timing-function: ease-in; 
+            -webkit-transition-timing-function: ease-in;
+            -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+            -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+        }
+}
+.Sell_Section{
+    // background-color: #FFFFFFFF;
+    // padding: 10px;
+    // margin: 10px 0px;
+}
+.Exchange_Heading{
+    color: #E72B90;
+    text-align: center;
+}
+.Fee_Section{
+    margin-left: 15px;
+    color: #428abc;
+}
+.Buy_Section{
+    border-right: 1px solid;
+}
+.Buy_Sell_Heading{
+    background-color: #020748;
+    padding: 6px 0px;
+    height: 45px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 15px 1px #428abc;
+    margin: 0px 15px 0px 15px;
+    /* border: 4px solid #E72B90; */
+}
+.Dashboard_Sub_Heading{
+    font-size: 24px;
+    color: #428abc;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+// Dashboard_Sub_Heading2{
+//     color: #E72B90;
+// }
+.Dashboard_Market_Price_Desc{
+    color: #ffffff;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.Dashboard_Market_Price_Heading{
+    display: inline-flex; width: auto;color: #ffffff;
+}
+
+// Dashboard Coin Section
+.Dashboard_Coin_Img{
+    display: inline-flex;
+    padding: 18px;
+   
+}
+// .Dashboard_Coin_Img:hover{
+//     box-shadow: 0px 0px 15px 0px gray; background: transparent;
+//     border-radius: 50%;
+// }
+
+//Dashboard Profile Info Section 
+.Dashboard_Avator_Img{
+    width: 53%;
+    background-color: transparent;
+    border-radius: 50%;
+
+    &:hover{
+        box-shadow: 0px 0px 15px 0px gray;
+    }
+}
+.CenterPart{
+    height: 260px;
+}
+.Dashborad_Profile_section{
+    background-color: transparent;
+    box-shadow: 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc, 0px 0px 10px 0px #428abc;
+    height: 326px;
+    border-radius: 10px;
+    &:hover{
+        box-shadow: 0px 0px 10px 0px #E72B90;
+    }
+    // padding: 20px;
+    // height: 298px;
+}
+.Dashborad_Profile_section_Coin{
+    background-color: #FFFFFFFF;
+    height: 315px;
+    padding-top: 20px; 
+}
+.Dashboard_Profile_Name{
+    color: #FFFFFFFF;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.Dashboard_Profile_Name1{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 19px;
+    margin-bottom: 10px;
+}
+.Dashboard_Profile_MailID{
+    font-size: 14px;
+    color: black;
+    display: grid;
+}
+.Dashboard_Edit_section{
+    border-top: 1px solid lightgray;
+    padding: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #E72B90;
+        color: #ffffff;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px; 
+        transition-duration: 0.3s;
+    }
+    
+}
+.Dashboard_Edit_Icon{
+    color: #E72B90;
+    cursor: pointer;
+    padding: 6px 31px;
+}
+.Transaction_HIstory{
+    display: grid;
+    margin: -46px 55px;
+}
+.Transaction_HIstory1{
+    display:grid;
+    text-align: right;
+    margin: -46px 0px; 
+}
+.Dashboard_Item1{
+    display: grid;
+}
+.Dashboard_Item2{
+    display: grid;
+    text-align: right;
+}
+.Model_Input_Field{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    width: 203px;
+}
+.Dashboard_Model_Btn{
+    background-color: #E72B90;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+    height: 40px;
+    width: 23%;
+    border: 1px solid #E72B90;
+    outline: none;
+    border-radius: 10px;
+}
+// Transaction & Login Section 
+.Dashboard_LoginHistory{
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    width: 542px;
+    height: 60px;
+    font-size: 14px;
+}
+.Transaction_History_Icon{
+    padding: 8px 16px;
+    background-color: #EEFFE5;
+    border-radius: 50%;
+    color: green;
+    width: fit-content;
+    font-size: 20px
+}
+.Transaction_History_Icon1{
+    padding: 8px 16px;
+    background-color: #F8DDE2;
+    border-radius: 50%;
+    color: red;
+    width: fit-content;
+    font-size: 20px
+}
+
+// Exchange Page
+
+// Exchange Section
+.Sell_Coin_Section{
+    // background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    // border: 2px solid #E72B90;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 15px 0px #428abc;
+    // margin-left: 10px;
+    // height: 308px;
+    // margin: 10px 5px;
+
+    &:hover{
+        box-shadow: 0px 0px 15px 0px #E72B90;
+    }
+
+    &:hover .Buy_Sell_Heading{
+        box-shadow: 0px 0px 15px 0px #E72B90;
+        color: #ffffff;
+    }
+    &:hover .BuyCoin_Heading{
+        color: #ffffff;
+    }
+    &:hover .Fee_Section{
+        color: #ffffff;
+    }
+}
+.Exchange_Section h4{
+    font-size: 14px;
+    color: #7C7C7C;
+}
+.ExchangeBtn{
+    background-color: #E72B90;;
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    border: 1px solid #E72B90;
+    // padding: 10px;
+    width: 78%;
+    border-radius: 10px;
+    
+    &:hover{
+    background-color: #ffffff;
+    color: #E72B90;
+    border: 1px solid #E72B90;
+    transition-duration: 0.8s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.7s;
+    -moz-transition-timing-function: ease-in; 
+    -webkit-transition-timing-function: ease-in;
+    -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+    -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+}
+}
+.Exchange_YouHave,
+.Exchange_YouGot{
+    height: 62px;
+    padding: 20px;
+}
+// Login History
+.Table_Heading{
+    width: 100%;
+}
+.Exchange_History1{
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    // width: 100%;
+    height: 43px;
+    font-size: 14px;
+}
+.Exchange_History{
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    // width: 100%;
+    height: 43px;
+    font-size: 14px;
+}
+.Exchange_History:hover:not(:first-child){
+    box-shadow: 0px 0px 6px 0px grey;
+}
+.Login_History_Status{
+    background-color: #F5C8D2;
+    color: red;
+    font-size: 20px;
+    padding: 2px;
+    border-radius: 50%;
+}
+.Login_History_Status1{
+    background-color: #E7FFC9;
+    color: green;
+    font-size: 20px;
+    padding: 2px;
+    border-radius: 50%;
+}
+.Profile_Change_Password,
+.Your_Profile_Update{
+    background-color: transparent;padding: 15px;width: 100%;height: auto;box-shadow: 0px 0px 10px 0px #428abc;
+    &:hover{
+        box-shadow: 0px 0px 10px 0px #E72B90;
+    }
+    &:hover .Profile_Heading{
+        color: #E72B90;
+    }
+}
+.Exchange_Notification{
+    background-color: transparent;padding: 15px;height: 368px;box-shadow: 0px 0px 10px 0px #428abc;
+    &:hover{
+        box-shadow: 0px 0px 10px 0px #E72B90;
+    }
+    &:hover .Profile_Heading{
+        color: #E72B90;
+    }
+}
+.Notification_List{
+    padding-left: 0px;
+}
+.Notification_Item{
+    padding-left: 0px;
+    color: #E72B90;
+    list-style-type: none;
+}
+// .Exchange_Notification .Profile_Heading{
+// font-size: 20px;
+// font-weight: 700;
+// color: #428abc;
+// }
+.Exchange_Notification h6{
+    color: #428abc;
+    // font-size: 16px;font-weight: 700
+}
+// .Your_Profile_UpdateInput{
+//     padding: 10px;
+// }
+.Setting_Heading li{
+    display: inline-flex;
+    cursor: pointer;
+}
+.Setting_Heading1 li{
+    display: inline-flex;
+    cursor: pointer;
+    outline: none;
+    margin-top: 6px;
+}
+.Setting_Heading1 li:not(:first-child){
+    margin-left: 25px;
+}
+.Setting_Heading li:not(:first-child){
+    margin-left: 25px;
+}
+.Setting_Heading1{
+    font-weight: 600;padding-left: 0px;
+}
+.Setting_Heading1 li:hover
+{
+    border-bottom: 2px solid #020748;
+}
+.Setting_Heading1 li:focus{
+    border-bottom: 2px solid;
+}   
+.Setting_Heading{
+    font-weight: 600;
+}
+.Profile_Heading{
+    font-size: 20px;
+    font-weight: 700;
+    color: #428abc;
+}
+.Setting_Heading li:hover
+{
+    border-bottom: 2px solid #020748;
+}
+.Setting_Heading li:focus{
+    border-bottom: 2px solid;
+}
+.line{
+    margin-top: -25px;
+}
+.SWAP_Change{
+    font-size: 40px;
+    margin-left: -25px;
+    color: #e72b90;
+    cursor: pointer;
+    &:hover{
+        color: #0d2464;transition-duration: .5s;
+    }
+}
+.ImgHover{
+    // margin-top: -100px;margin-left: -327px;
+    background: transparent;border: 1px solid white;border-radius: 50%;
+}
+.ImgHover:hover{
+    border: 1px solid;
+    box-shadow: 0px 0px 15px 0px #0D2464;
+}
+.textBold{
+    font-weight: 500;
+}
+.Exchange_Input{
+    border: 1px solid white;
+    width: 50px;
+    margin-top: 17px;
+    border-bottom: 1px solid black;
+}
+.Exchange_heading{
+    font-size: 18px;
+}
+// FAQ
+.FAQ_Heading h2{
+    color: #020748;font-size: 36px;
+}
+.FAQ_Accordion p{
+    font-size: 22px;
+    margin-top: 17px;padding: 10px;font-family: 'Ubuntu';
+}
+.FAQ_Btn{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 10px;
+    height: 40px;
+    width: 100px;
+    outline: none;
+}
+.FAQ_Section{
+    background-color: #ffffff;
+    padding: 10px;
+    height: 454px;
+    box-shadow: 0px 0px 15px 0px lightgrey;
+}
+.FAQ_Section p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #020748;
+    text-transform: uppercase;
+    text-align: center;
+}
+.Space_Accordion{
+    margin-top: 10px;
+}
+// Send & Receive Page
+.Send_Receive_Heading{
+    display: inline-flex;
+    padding: 10px;
+    // background-color: #ffffff;
+}
+.Send_Receive_Heading h4:not(:first-child){
+    margin-left: 10px;
+}
+.Send_Receive_Heading h4:hover{
+    border-bottom: 1px solid #020748;
+}
+.Send_Receive_Section{
+    background-color: #ffffff;
+}
+.SEND_RECEIVE_INPUT_SECTION{
+    background-color: #ffffff;
+    // padding: 10px;
+    // display: inline-flex;
+    // margin-top: 20px;
+    // height: 510px;
+    // box-shadow: 0px 0px 15px 0px gray;
+    // height: 56px;
+}
+.RECEIVE_INPUT_SECTION{
+    background-color: #ffffff;
+    padding: 10px;
+    // display: inline-flex;
+    margin-top: 20px;
+    height: 410px;
+    // box-shadow: 0px 0px 15px 0px gray;
+    // height: 56px;
+}
+.Display_Bank_Details{
+    display: grid;
+    font-size: 16px;
+    color: #ffffff; 
+    height: 218px;
+}
+.Deposit_Section{
+    background-color: transparent;
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0px 0px 15px 0px #428abc;
+    &:hover{
+        box-shadow: 0px 0px 15px 0px #E72B90;
+    }
+    &:hover .Dashboard_Sub_Heading{
+        color: #E72B90;
+    }
+}
+.Withdraw_Section{
+    background-color: transparent;
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0px 0px 15px 0px #428abc;;
+    &:hover{
+        box-shadow: 0px 0px 15px 0px #E72B90;
+    }
+    &:hover .Dashboard_Sub_Heading{
+        color: #E72B90;
+    }
+}
+.Tips_Section{
+    background-color: transparent;
+    padding: 10px;
+    box-shadow: 0px 0px 15px 0px #428abc;
+    color: #ffffff;
+    // width: 100%;
+    height: auto;
+    margin-top: 20px;
+    &:hover{
+        box-shadow: 0px 0px 15px 0px #E72B90;
+    }
+}
+.Tips_Section_Title{
+    color: #E72B90;
+}
+.PopupBankDetailsLink{
+    color: #E72B90!important;
+    font-size: 14px;
+    &:hover{
+        color: #071751!important;
+    }
+}
+.Bank_Details_Popup{
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+    display: grid;
+}
+.Tips_Section_Contant{
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 13px;
+}
+.SEND_RECIVE_DESC{
+    color: #E72b90;
+    font-size: 14px;
+    // padding: 5px;
+    margin-top: 8px;
+    text-align: center;
+}
+.SEND_Btn{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    border-radius: 10px;
+    width: 30%;
+    height: 45px;
+    padding: 8 px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    &:hover{
+        color: #E72B90;
+        border: 2px solid #E72B90;
+        transition-duration: 0.5s;
+        transition-delay: 0.2s;
+        background-color: #ffffff;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.7s;
+        -moz-transition-timing-function: ease-in; 
+        -webkit-transition-timing-function: ease-in;
+        -moz-box-shadow: 0px 50px 0 0px  white inset , 0px -50px 0 0px white inset;
+        -webkit-box-shadow: 0px 50px 0 0px white inset , 0px -50px 0 0px white inset;
+    }
+
+}
+.UploadImg img{
+    border: 1px solid;
+    margin-top: 10px;
+    padding: 10px;
+}
+.KYC_Desc{
+    color: #E72B90;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.KYC_Desc1{
+    color: #E72B90;
+    font-size: 18px;
+    margin-top: 33px;
+}
+.KYC_Upload{
+    background-color: #E72B90;
+    color: #ffffff;
+    border: 1px solid #E72B90;
+    border-radius: 10px;
+    padding: 5px;
+    width: 30%;
+    &:hover{
+        color: #E72B90;
+        // border: 2px solid #E72B90;
+        transition-duration: 0.5s;
+        transition-delay: 0.2s;
+        background-color: #ffffff;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.7s;
+        -moz-transition-timing-function: ease-in; 
+        -webkit-transition-timing-function: ease-in;
+        -moz-box-shadow: 0px 50px 0 0px  white inset , 0px -50px 0 0px white inset;
+        -webkit-box-shadow: 0px 50px 0 0px white inset , 0px -50px 0 0px white inset;
+    }
+}
+.KYCDESC{
+    background-color: transparent;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px #428abc;
+    &:hover{
+        box-shadow: 0px 0px 10px 0px #E72B90;
+    }
+}
+.KYCNotes{
+    color: #E72B90;
+    font-size: 18px;
+    font-weight: 700;
+}
+.KYCNotesList{
+    list-style-type :circle; padding-left:15px;
+}
+.KYCNotesList li{
+    color: #ffffff;
+}
+.BankDetails{
+    background-color: transparent;
+    padding: 10px;
+    // height: 330px;
+    box-shadow: 0px 0px 10px 0px #428abc;
+    &:hover{
+        box-shadow: 0px 0px 10px 0px #E72B90;
+    }
+    &:hover .Dashboard_Heading{
+        color: #E72B90
+    }
+}
+
+// About Us Page
+.About_Us_Heading{
+    color: #020748;
+    // font-size: 18px;
+    font-weight: 500;
+}
+.AboutUs_Section{
+    // padding: 0px 5px;
+    font-size: 16px;
+    color: gray;
+}
+
+// Error 404 Page
+.Error404Page{
+    background-image: url("/assets/images/404page.png");background-size: cover;background-repeat: no-repeat;height: 630px;
+} 
+.Error404Desc{
+    color: #020748;padding: 0px 261px;margin-left: 222px;margin-top: 100px;
+}
+.Error404{
+    font-size: 94px;font-weight: 600;
+}
+.ErrorBtn{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 4px;
+    width: 30%;
+    height: 50px;
+    font-size: 28px;
+    margin-left: 176px;
+    margin-top: -13px;
+    font-weight: 600;
+
+}
+.ErrorBtn:hover{
+    color: #E72B90;
+    border: 2px solid #E72B90;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+    background-color: #ffffff;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.7s;
+    -moz-transition-timing-function: ease-in; 
+    -webkit-transition-timing-function: ease-in;
+    -moz-box-shadow: 0px 50px 0 0px  white inset , 0px -50px 0 0px white inset;
+    -webkit-box-shadow: 0px 50px 0 0px white inset , 0px -50px 0 0px white inset;
+}
+
+// Support
+.Upload_Support_Ticket{
+    border: 1px solid #333333;
+    width: 27%;
+    padding: 10px;
+    border-radius: 10px;
+}
+.Support_Upload_Btn{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 4px;
+    width: 30%;
+    height: 40px;
+    font-size: 18px;
+    // margin-left: 176px;
+    // margin-top: -13px;
+    font-weight: 600;
+}
+.Support_Upload_Btn:hover{
+    color: #E72B90;
+    border: 2px solid #E72B90;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+    background-color: #ffffff;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.7s;
+    -moz-transition-timing-function: ease-in; 
+    -webkit-transition-timing-function: ease-in;
+    -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+    -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+}
+.Ticket_Form{
+    background-color:transparent;padding: 10px;box-shadow: 0px 0px 10px 0px #E72B90; 
+    &:hover{
+        box-shadow: 0px 0px 10px 0px #428abc;
+    }
+}
+// Contact Us Section
+.ContactUs_Heading{
+    font-size: 24px;font-weight: 500;color: #020748;
+}
+.ContactUs_Btn{
+    background-color: #E72B90;
+    border: 1px solid #E72B90;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 4px;
+    width: 30%;
+    height: 40px;
+    font-size: 18px;
+    outline: none;
+    // font-weight: 600;
+}
+.ContactUs_Btn:hover{
+    color: #E72B90;
+    border: 2px solid #E72B90;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+    background-color: #ffffff;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.7s;
+    -moz-transition-timing-function: ease-in; 
+    -webkit-transition-timing-function: ease-in;
+    -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+    -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+}
+
+// Privacy_Policy
+.Privacy_Policy_Title{
+    color: #020748;
+    font-size: 28px;
+    font-weight: 500;
+}
+.Privacy_Policy_SubTitle{
+    color: #020748;
+    font-size: 24px;
+    font-weight: 500;
+}
+.Privacy_Policy_Desc{
+    font-size: 16px;
+    color: gray;
+}
+
+// LOGIN SECTION 
+.InputField_Login{
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 15px;
+    height: 35px;
+    border: 1px solid lightgray;
+    font-size: 14px;
+    width: 80%;
+    outline: none;
+}
+.FormsCSS{
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+}
+.ReCaptcha{
+    margin-top: 10px;
+}
+.Submin_Btn{
+    background-color: #E72B90;color: #ffffff;
+    font-size: 14px;font-weight: 500;
+    border: 1px solid #E72B90;padding: 5px;
+    width: 40%;border-radius: 10px;
+    margin-top: 15px;height: 40px;
+    
+        &:hover{
+        color: #E72B90;
+        border: 2px solid #E72B90;
+        transition-duration: 0.5s;
+        transition-delay: 0.2s;
+        background-color: #ffffff;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.7s;
+        -moz-transition-timing-function: ease-in; 
+        -webkit-transition-timing-function: ease-in;
+        -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+        -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+        }
+}
+.Bank_Details_View{
+    background-color: #E72B90;color: #ffffff;
+    font-size: 14px;font-weight: 500;
+    border: 1px solid #E72B90;padding: 5px;
+    width: 40%;border-radius: 10px;
+    margin-top: 15px;height: 40px;
+    
+        &:hover{
+        color: #E72B90;
+        border: 2px solid #E72B90;
+        transition-duration: 0.5s;
+        transition-delay: 0.2s;
+        background-color: #ffffff;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.7s;
+        -moz-transition-timing-function: ease-in; 
+        -webkit-transition-timing-function: ease-in;
+        -moz-box-shadow: 50px 50px 0 0px  white inset , -50px -50px 0 0px white inset;
+        -webkit-box-shadow: 50px 50px 0 0px white inset , -50px -50px 0 0px white inset;
+        }
+}
+.Bank_Details_Popup_Title{
+    color: #E72B90
+}
+.ForgetHyperLink{
+    color: #E72B90;margin-top: 15px;margin-left: 50px;
+    &:hover{
+        color: #020748; text-decoration: none; 
+    }
+}
+.SignUp_HyperLink{
+    color: #E72B90;
+    font-weight: 500;font-size: 18px;
+    &:hover{
+        color: #020748;text-decoration: none; 
+    }
+}
+.Title_Login{
+    font-weight: 500;font-size: 28px;
+}
+.Desc_Login{
+    font-weight: 500;font-size: 18px;
+}
+.UM_BG{
+    background-image: url("assets/images/undermaintances.png");
+    // background-image: url(undermaintances.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: -webkit-fill-available;
+    // width: unset;
+    background-position: top;
+}
+.UM_DESC{
+    color: #020748;
+    margin-top: 200px;
+    padding: 0px 310px;
+    font-size: 48px;font-weight: bold;
+}
+.Admin_Bank_Details_Popup{
+    cursor: pointer;
+    color: #E72B90!important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.KYCProof{
+    background-color: transparent;
+    box-shadow: 0px 0px 10px 0px #428abc,  0px 0px 10px 0px #428abc,  0px 0px 10px 0px #428abc;
+    padding: 10px;
+    &:hover{
+        box-shadow: 0px 0px 10px 0px #E72B90,  0px 0px 10px 0px #E72B90,  0px 0px 10px 0px #E72B90;
+    }
+    &:hover .Profile_Heading{
+        color: #E72B90;
+    }
+}
+.HISTORY_Heading{
+    color: #ffffff;
+}
+
+
+// News Details
+.NewsImgDetails{
+    width: 100%;height: 310px;
+}
+.NewDesc{
+    font-size: 14px;padding: 10px;
+}
+    // .Img_Hover{
+    //     // background-position-x: 10px;
+    //     height: 150px;
+    //     &:hover{
+
+    //         width: 50%;
+    //     }
+    // }
+
+    // 
+  
+    @media only screen and (max-width: 600px) {
+        .ContactUs_Btn {
+         width: 50%;
+        }
+        .Sidenav {
+            display: grid;
+            width: 103%;
+        }
+      }
